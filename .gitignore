@@ -167,3 +167,10 @@ cache/
 *.pyc
 *.pyo
 *.pyd
+
+# Paper and manuscript files (not for public repository)
+_2026ACL_Agri_R1*.pdf
+acl_latex*.tex
+*训练实验完整报告*.md
+*.tex
+论文*.md

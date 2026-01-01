@@ -1,37 +1,205 @@
 <div align="center">
 
-# Agri-R1: Automated Chain-of-Thought for Agricultural Disease Diagnosis
+# 🌾 Agri-R1: Reinforcement Learning for Agricultural Disease Diagnosis
+### *Automated Chain-of-Thought via GRPO*
 
-**Reinforcement Learning-Enhanced Vision-Language Model for Agricultural Disease Diagnosis**
+[![arXiv](https://img.shields.io/badge/arXiv-Coming_Soon-b31b1b.svg?style=flat-square)](#)
+[![ACL 2025](https://img.shields.io/badge/ACL-2025-orange.svg?style=flat-square)](#)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-blue.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg?style=flat-square)](LICENSE)
 
-[![arXiv](https://img.shields.io/badge/arXiv-Coming_Soon-b31b1b.svg)](#)
-[![ACL 2025](https://img.shields.io/badge/ACL-2025-orange.svg)](#)
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=agri-r1)
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/Agri-R1.svg?style=social)](#)
+**Data-Efficient** • **Interpretable** • **Cross-Domain Generalization** • **GRPO-Based**
 
-<img src="Images/pipeline.png" width="100%" alt="Agri-R1 Pipeline">
+[📊 Prompts & Evaluation](PROMPTS_AND_EVALUATION.md) • [📁 Data Format](DATA_FORMAT.md)
 
 </div>
 
 ---
 
-## Overview
+## 🏗️ Framework Architecture
 
-**Agri-R1** is a cutting-edge vision-language model built on **Qwen2.5-VL-3B-Instruct** that leverages **Group Relative Policy Optimization (GRPO)** with automated **Chain-of-Thought (COT)** reasoning for enhanced agricultural disease diagnosis.
-
-### Key Highlights
-
-- **Automated COT Generation** - Self-distilled reasoning from powerful VLMs (GPT-4o, Claude 3.5) without manual annotation
-- **Reinforcement Learning** - GRPO training for robust and generalizable diagnostic reasoning
-- **Two-Stage Pipeline** - Stage 1: COT data generation → Stage 2: GRPO optimization
-- **Strong Generalization** - Validated on out-of-distribution benchmarks (AgMMU, MIRAGE)
-- **Interpretable Reasoning** - Step-by-step diagnostic process with `<think>` and `<answer>` tags
+<div align="center">
+  <img src="Images/pipeline.png" alt="Agri-R1 Pipeline" width="95%"/>
+  <p><em>Figure 1: Two-stage GRPO framework with automated CoT generation</em></p>
+</div>
 
 ---
 
-## Quick Start
+## 🌟 Highlights
 
-### Installation
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+
+### 🎯 **Key Innovation**
+
+- **Automated CoT Generation**
+  Self-distilled reasoning from VLMs without manual annotation
+
+- **GRPO Reinforcement Learning**
+  Robust policy optimization for agricultural VQA
+
+- **Fuzzy-Matching Reward**
+  Handles linguistic diversity in open-ended responses
+
+</td>
+<td width="50%" valign="top">
+
+### ✨ **Performance**
+
+- **Parameter Efficiency**
+  3B model matches 7B-13B baselines
+
+- **Data Efficiency**
+  Train on only 18.93% of data (-81% reduction)
+
+- **Strong Generalization**
+  +26.10 points on cross-domain tasks
+
+</td>
+</tr>
+</table>
+
+---
+
+## 💡 Overview
+
+> **Agri-R1** addresses critical limitations in agricultural disease diagnosis:
+> *How can we train accurate, interpretable models with limited data?*
+
+### ❌ Limitations of Supervised Fine-Tuning
+
+- **Data Hunger** - Requires millions of labeled samples
+- **Black-Box Predictions** - No diagnostic reasoning provided
+- **Poor Generalization** - Memorizes dataset-specific patterns
+
+### ✅ Agri-R1 Solution
+
+<table>
+<tr>
+<td width="5%">📝</td>
+<td width="95%"><b>Stage 1: Automated CoT Generation</b><br/>DeepSeek-VL2 generates reasoning chains, GPT-4 filters quality (τ=8.0/10.0)</td>
+</tr>
+<tr>
+<td>🎯</td>
+<td><b>Stage 2: GRPO Training</b><br/>Group Relative Policy Optimization with fuzzy-matching rewards</td>
+</tr>
+<tr>
+<td>🔍</td>
+<td><b>Interpretable Output</b><br/>Structured <code>&lt;think&gt;</code> reasoning + <code>&lt;answer&gt;</code> format</td>
+</tr>
+</table>
+
+---
+
+## 📊 Performance Results
+
+### 🎯 CDDMBench Benchmark (In-Distribution)
+
+<table align="center">
+<thead>
+  <tr>
+    <th>Task</th>
+    <th>SFT (Full Data)</th>
+    <th>GRPO+CoT (18.93% Data)</th>
+    <th>Improvement</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>Crop Recognition</b></td>
+    <td><code>90.97%</code></td>
+    <td><code>92.58%</code> 🏆</td>
+    <td><b style="color:green">+1.8%</b> 📈</td>
+  </tr>
+  <tr>
+    <td><b>Disease Recognition</b></td>
+    <td><code>58.84%</code></td>
+    <td><code>72.50%</code> 🏆</td>
+    <td><b style="color:green">+23.2%</b> 📈</td>
+  </tr>
+  <tr>
+    <td><b>Knowledge QA</b></td>
+    <td><code>63.0 / 100</code></td>
+    <td><code>84.0 / 100</code> 🏆</td>
+    <td><b style="color:green">+33.3%</b> 📈</td>
+  </tr>
+</tbody>
+</table>
+
+### 🔬 AgMMU Benchmark (Cross-Domain Generalization)
+
+<table align="center">
+<thead>
+  <tr>
+    <th>Model</th>
+    <th>Parameters</th>
+    <th>Harmonic Mean</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>SFT (Ours)</td>
+    <td>3B</td>
+    <td><code>40.00%</code></td>
+  </tr>
+  <tr>
+    <td><b>GRPO+CoT (Ours)</b></td>
+    <td><b>3B</b></td>
+    <td><code><b>66.10%</b></code> 🏆</td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center"><i>Published Baselines (7B-13B)</i></td>
+  </tr>
+  <tr>
+    <td>LLaVA-1.5</td>
+    <td>13B</td>
+    <td><code>66.73%</code></td>
+  </tr>
+  <tr>
+    <td>LLaVA-NeXT</td>
+    <td>8B</td>
+    <td><code>66.71%</code></td>
+  </tr>
+  <tr>
+    <td>Claude 3 Haiku</td>
+    <td>—</td>
+    <td><code>62.00%</code></td>
+  </tr>
+</tbody>
+</table>
+
+> 💡 **Our 3B model matches 7B-13B baselines while using only 18.93% training data**
+
+---
+
+## 📦 Dataset Information
+
+### 🌱 CDDMBench (In-Distribution Evaluation)
+
+**Crop Disease Diagnosis Multimodal Benchmark**
+
+- 📄 **Paper**: Liu et al., "A multimodal benchmark dataset and model for crop disease diagnosis", ECCV 2024
+- 🔗 **Dataset**: [https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench](https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench)
+- 📊 **Scale**: 1.05M training samples, 3,963 test samples
+- 🌱 **Coverage**: 16 crop types, 33 disease categories
+- 🎯 **Tasks**: Disease diagnosis, crop recognition, knowledge QA
+
+### 🌍 AgMMU (Cross-Domain Generalization)
+
+**Agricultural Multimodal Understanding Benchmark**
+
+- 📄 **Paper**: Gauba et al., "AgMMU: A comprehensive agricultural multimodal understanding and reasoning benchmark"
+- 🔗 **Dataset**: [https://agmmu.github.io/](https://agmmu.github.io/)
+- 🌐 **Coverage**: Global agricultural scenarios across diverse regions
+- 📊 **Test Set**: 770 multiple-choice questions across 5 tasks
+- 🎯 **Purpose**: Cross-domain generalization evaluation
+
+---
+
+## 🚀 Quick Start
+
+### 📥 Installation
 
 ```bash
 # Clone the repository
@@ -45,173 +213,109 @@ conda activate agri-r1
 # Install dependencies
 pip install -r requirements.txt
 
-# Install the r1-v training framework
+# Install r1-v framework
 cd src/r1-v
 pip install -e .
 cd ../..
 ```
 
-### System Requirements
+### 💻 System Requirements
 
-- **GPU**: 4×A800 80GB (training) / 1×A100 40GB (inference)
-- **CUDA**: 11.8+ with Flash Attention 2 support
-- **Python**: 3.11+
+<table>
+<tr>
+<td width="50%" valign="top">
 
----
+**Training**
+- GPU: 4×A800 80GB
+- CUDA: 11.8+ with Flash Attention 2
+- Time: ~98 hours (97.7h)
 
-## Repository Structure
+</td>
+<td width="50%" valign="top">
 
-```
-Agri-R1/
-├── Images/                           # Pipeline visualizations
-│   └── pipeline.png                  # Main architecture diagram
-│
-├── datasets/                         # Training and evaluation data
-│   ├── train and evaluation datasets/
-│   │   ├── train_data_examples/      # Training data samples
-│   │   └── evaluation_data/          # Benchmark datasets
-│   └── evaluation datasets results/  # Model inference outputs
-│
-├── src/
-│   ├── scripts/                      # Training launch scripts
-│   │   ├── train_grpo_with_cot.sh    # GRPO + COT training (recommended)
-│   │   ├── train_grpo_no_cot.sh      # GRPO without COT
-│   │   └── train_sft.sh              # Supervised fine-tuning baseline
-│   │
-│   ├── r1-v/                         # GRPO training framework
-│   │   ├── src/open_r1/
-│   │   │   ├── grpo_vqa.py           # GRPO trainer with COT
-│   │   │   ├── grpo_no_cot.py        # GRPO trainer without COT
-│   │   │   ├── sft.py                # SFT trainer
-│   │   │   └── trainer/
-│   │   │       ├── grpo_trainer.py   # Core GRPO implementation
-│   │   │       └── dynamic_callbacks.py
-│   │   └── configs/                  # DeepSpeed ZeRO-3 configurations
-│   │
-│   ├── stage1_cot/                   # COT data generation pipeline
-│   │   ├── resize_images_384.py      # Image preprocessing (384×384)
-│   │   ├── sample_dataset_20k.py     # Dataset sampling strategy
-│   │   ├── generate_cot.py           # COT generation via API
-│   │   ├── enhance_cot.py            # COT quality enhancement
-│   │   └── README.md                 # Stage 1 detailed documentation
-│   │
-│   └── eval_vqa/                     # Comprehensive evaluation suite
-│       ├── cddmbench/                # In-distribution evaluation
-│       │   ├── crop_disease/         # Disease classification tasks
-│       │   │   ├── inference_zeroshot.py
-│       │   │   ├── inference_fiveshot.py
-│       │   │   ├── inference_grpo_cot.py
-│       │   │   ├── evaluate.py
-│       │   │   └── run_inference.sh
-│       │   └── knowledge/            # Knowledge QA tasks
-│       │       ├── inference_zeroshot.py
-│       │       ├── inference_grpo_cot.py
-│       │       └── run_inference.sh
-│       └── agmmu/                    # Out-of-distribution evaluation
-│           ├── inference_base.py
-│           ├── evaluate.py
-│           └── run_inference.sh
-│
-├── requirements.txt                  # Python dependencies
-└── README.md                         # This file
-```
+**Inference**
+- GPU: 1×A100 40GB (minimum)
+- Memory: 16GB+ RAM
+- Storage: ~10GB for model weights
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Training Pipeline
+## 🎓 Training Pipeline
 
-### Stage 1: Automated COT Data Generation
-
-Generate high-quality chain-of-thought reasoning data using powerful VLMs:
+### Stage 1: Automated CoT Data Generation
 
 ```bash
 cd src/stage1_cot
 
-# 1. Resize images for efficient processing
+# 1. Resize images to 384×384
 python resize_images_384.py \
   --input_dir /path/to/images \
   --output_dir ./images_384
 
-# 2. Sample training data
+# 2. Sample 18.93% training data (stratified)
 python sample_dataset_20k.py \
   --input_data /path/to/full_dataset.json \
   --output_data ./sampled_20k.json \
-  --num_samples 20000
+  --num_samples 200000
 
-# 3. Generate COT annotations
+# 3. Generate CoT annotations via DeepSeek-VL2
 python generate_cot.py \
   --input_data ./sampled_20k.json \
   --output_dir ./cot_data \
   --api_key YOUR_API_KEY \
-  --model gpt-4o
+  --model deepseek-vl2
 
-# 4. Enhance COT quality
+# 4. Filter quality with GPT-4 (τ=8.0/10.0)
 python enhance_cot.py \
   --input_dir ./cot_data \
-  --output_dir ./cot_enhanced
+  --output_dir ./cot_enhanced \
+  --threshold 8.0
 ```
 
-#### Data Format Example
-
-```json
-{
-  "image": "images/tomato_leaf_001.jpg",
-  "question": "What disease is affecting this tomato plant?",
-  "conversations": [
-    {
-      "from": "user",
-      "value": "<image>\nWhat disease is affecting this tomato plant?"
-    },
-    {
-      "from": "assistant",
-      "value": "<think>Step 1: Observe leaf characteristics - yellowing between veins, dark circular spots.\nStep 2: Analyze lesion patterns - concentric rings typical of fungal infection.\nStep 3: Identify pathogen - Alternaria solani based on symptom morphology.\nStep 4: Confirm diagnosis.</think><answer>Tomato Early Blight (Alternaria solani)</answer>"
-    }
-  ]
-}
-```
+> 📖 **See [src/stage1_cot/README.md](src/stage1_cot/README.md) for detailed instructions**
 
 ### Stage 2: GRPO Reinforcement Learning
 
-Train the model using Group Relative Policy Optimization:
-
 ```bash
-# Recommended: GRPO with COT
+# Recommended: GRPO with CoT
 bash src/scripts/train_grpo_with_cot.sh
 
-# Alternative: Supervised Fine-Tuning (baseline)
-bash src/scripts/train_sft.sh
-
-# Alternative: GRPO without COT (ablation)
+# Alternative: GRPO without CoT (ablation study)
 bash src/scripts/train_grpo_no_cot.sh
+
+# Baseline: Supervised fine-tuning
+bash src/scripts/train_sft.sh
 ```
 
 #### Training Configuration
 
-| Parameter | Value |
-|-----------|-------|
-| Base Model | Qwen2.5-VL-3B-Instruct |
-| Training Data | 200k samples with COT |
-| Hardware | 4×A800 80GB GPUs |
-| Batch Size | 160 (10/device × 4 accum × 4 GPUs) |
-| Epochs | 3 |
-| Optimizer | AdamW (lr: 5e-6) |
-| Training Time | ~69 hours |
-| Optimization | DeepSpeed ZeRO-3 |
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| **Base Model** | Qwen2.5-VL-3B-Instruct | Vision-language model |
+| **Training Data** | 200,005 samples (18.93%) | Stratified sampling |
+| **Hardware** | 4×A800 80GB | DeepSpeed ZeRO-3 |
+| **Batch Size** | 160 | 10/device × 4 accum × 4 GPUs |
+| **Learning Rate** | 8×10⁻⁷ | AdamW optimizer |
+| **Epochs** | 3 (~3,750 steps) | Optimal: step 1,800 |
+| **GRPO K** | 3 candidates | Temperature 0.7 |
+| **Training Time** | ~98 hours (97.7h) | From scratch to best checkpoint |
 
 ---
 
-## Inference & Evaluation
+## 🔍 Inference & Evaluation
 
-### CDDMBench Evaluation (In-Distribution)
-
-Evaluate on crop and disease classification tasks:
+### CDDMBench Evaluation
 
 ```bash
 cd src/eval_vqa/cddmbench/crop_disease
 
-# Run inference with COT reasoning
+# Run inference with CoT reasoning
 python inference_grpo_cot.py \
-  --model_path /path/to/agri-r1-checkpoint \
+  --model_path /path/to/checkpoint-1800 \
   --input_json test_data.json \
   --output_json predictions.json
 
@@ -222,18 +326,15 @@ python evaluate.py \
   --output-file results.json
 ```
 
-### AgMMU Evaluation (Out-of-Distribution)
-
-Test generalization on unseen agricultural data:
+### AgMMU Evaluation
 
 ```bash
 cd src/eval_vqa/agmmu
 
-# Inference with COT
-python inference_with_cot.py \
-  --model_path /path/to/agri-r1-checkpoint \
+# Inference with CoT
+python inference_base.py \
+  --model_path /path/to/checkpoint-1800 \
   --data_path agmmu_validation.json \
-  --image_dir ./images \
   --output predictions.json
 
 # Evaluate
@@ -249,40 +350,29 @@ from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
 from PIL import Image
 import torch
 
-# Load model and processor
+# Load model
 model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-    "path/to/agri-r1-checkpoint",
+    "path/to/checkpoint-1800",
     torch_dtype=torch.bfloat16,
     attn_implementation="flash_attention_2",
     device_map="auto"
 )
-processor = AutoProcessor.from_pretrained("path/to/agri-r1-checkpoint")
+processor = AutoProcessor.from_pretrained("path/to/checkpoint-1800")
 
 # Prepare input
 image = Image.open("tomato_disease.jpg")
-messages = [
-    {
-        "role": "user",
-        "content": [
-            {"type": "image", "image": image},
-            {"type": "text", "text": "What disease is this? Provide detailed reasoning."}
-        ]
-    }
-]
+messages = [{
+    "role": "user",
+    "content": [
+        {"type": "image", "image": image},
+        {"type": "text", "text": "What disease is this? Provide detailed reasoning."}
+    ]
+}]
 
 # Generate prediction
-text = processor.apply_chat_template(
-    messages,
-    tokenize=False,
-    add_generation_prompt=True
-)
+text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 inputs = processor(text=[text], images=[image], return_tensors="pt").to("cuda")
-
-outputs = model.generate(
-    **inputs,
-    max_new_tokens=512,
-    do_sample=False
-)
+outputs = model.generate(**inputs, max_new_tokens=512, do_sample=False)
 
 response = processor.decode(outputs[0], skip_special_tokens=True)
 print(response)
@@ -299,119 +389,167 @@ print(response)
 
 ---
 
-## Evaluation Benchmarks
+## 📁 Repository Structure
 
-### CDDMBench
-- **Crop Classification**: 40 crop species identification
-- **Disease Classification**: 120+ disease types across major crops
-- **Knowledge QA**: Expert-level questions on disease control, symptoms, and pathogens
-
-### AgMMU (Out-of-Distribution)
-- **Global Coverage**: Agricultural diseases from diverse geographical regions
-- **Multiple Choice**: Structured evaluation format
-- **Generalization Test**: Measures model robustness on unseen data
-
-### MIRAGE
-- **Multimodal Reasoning**: Complex agricultural scenarios
-- **Multi-step Inference**: Tests advanced reasoning capabilities
-
----
-
-## Implementation Details
-
-### GRPO Training Framework
-
-The core GRPO implementation is in `src/r1-v/src/open_r1/trainer/grpo_trainer.py`:
-
-```python
-# Key components:
-# 1. Policy gradient calculation with KL divergence penalty
-# 2. Group-wise advantage normalization
-# 3. Dynamic reward scaling based on reference model
-# 4. Efficient memory management with DeepSpeed ZeRO-3
 ```
-
-**Configuration files:**
-- `src/r1-v/configs/zero3.json` - DeepSpeed ZeRO-3 optimization
-- `src/scripts/train_grpo_with_cot.sh` - Training hyperparameters
-
-### COT Generation Pipeline
-
-Automated reasoning generation in `src/stage1_cot/generate_cot.py`:
-
-```python
-# Pipeline:
-# 1. Load image + question
-# 2. Query GPT-4o/Claude-3.5 with specialized prompt
-# 3. Parse <think> and <answer> tags
-# 4. Quality filtering and enhancement
-# 5. Format for GRPO training
-```
-
-**Key Scripts:**
-- `generate_cot.py` - Main COT generation
-- `enhance_cot.py` - Quality improvement and filtering
-- `resize_images_384.py` - Efficient image preprocessing
-
----
-
-## Example Results
-
-Model outputs with COT reasoning can be found in `datasets/evaluation datasets results/`:
-
-**Disease Classification Example:**
-```
-Input: Image of tomato leaf with disease symptoms
-Question: "Identify the disease affecting this tomato plant."
-
-Output:
-<think>
-Step 1: Observe leaf condition - yellowing areas with dark lesions
-Step 2: Examine lesion morphology - circular spots with target-like rings
-Step 3: Assess distribution pattern - lesions starting from older leaves
-Step 4: Identify pathogen characteristics - Alternaria solani fungal infection
-</think>
-<answer>Tomato Early Blight (Alternaria solani)</answer>
+Agri-R1/
+│
+├── 🖼️ Images/                          # Pipeline visualizations
+│   └── pipeline.png
+│
+├── 📊 datasets/                        # Training & evaluation data
+│   ├── train and evaluation datasets/
+│   └── evaluation datasets results/
+│
+├── 💻 src/
+│   ├── scripts/                       # Training launch scripts
+│   │   ├── train_grpo_with_cot.sh    # GRPO + CoT (recommended)
+│   │   ├── train_grpo_no_cot.sh      # GRPO without CoT
+│   │   └── train_sft.sh              # SFT baseline
+│   │
+│   ├── r1-v/                         # GRPO training framework
+│   │   ├── src/open_r1/
+│   │   │   ├── grpo_vqa.py           # GRPO trainer with CoT
+│   │   │   └── trainer/
+│   │   │       └── grpo_trainer.py   # Core GRPO implementation
+│   │   └── configs/                  # DeepSpeed ZeRO-3 configs
+│   │
+│   ├── stage1_cot/                   # CoT data generation
+│   │   ├── resize_images_384.py
+│   │   ├── sample_dataset_20k.py
+│   │   ├── generate_cot.py
+│   │   ├── enhance_cot.py
+│   │   └── README.md
+│   │
+│   └── eval_vqa/                     # Evaluation suite
+│       ├── cddmbench/                # In-distribution
+│       └── agmmu/                    # Cross-domain
+│
+├── 📄 PROMPTS_AND_EVALUATION.md      # Prompt engineering details
+├── 📋 DATA_FORMAT.md                 # Data format specifications
+├── 📦 requirements.txt               # Python dependencies
+└── 📖 README.md                      # This file
 ```
 
 ---
 
-## Acknowledgements
+## 🎯 Why Agri-R1 Works
 
-This project builds upon excellent open-source work:
+### 1️⃣ GRPO Discovers Generalizable Patterns
 
-- **[R1-V](https://github.com/Deep-Agent/R1-V)** - GRPO training framework for vision-language models
-- **[Qwen2.5-VL](https://github.com/QwenLM/Qwen2-VL)** - Powerful base vision-language model
-- **[CDDMBench](https://github.com/CDDMBench/CDDMBench)** - Comprehensive agricultural VQA benchmark
-- **[AgMMU](https://github.com/AgMMU/AgMMU)** - Out-of-distribution generalization benchmark
+<table>
+<tr>
+<th width="50%">❌ SFT (Memorization)</th>
+<th width="50%">✅ GRPO (Exploration)</th>
+</tr>
+<tr>
+<td valign="top">
 
----
+**In-Distribution**: 90.97% crop acc
+**Cross-Domain**: 40.00% (↓ 50.97 points)
 
-## Citation
+*Problem: Severe performance collapse*
 
-If you find this work helpful, please cite:
+</td>
+<td valign="top">
 
-```bibtex
-@inproceedings{agri-r1-2025,
-  title={Agri-R1: Automated Chain-of-Thought for Agricultural Disease Diagnosis},
-  author={Your Name and Co-authors},
-  booktitle={Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL 2025)},
-  year={2025}
+**In-Distribution**: 92.58% crop acc
+**Cross-Domain**: 66.10% (+26.10 points vs SFT)
+
+*Advantage: Robust domain transfer*
+
+</td>
+</tr>
+</table>
+
+### 2️⃣ Automated CoT Enables Interpretability
+
+Different complexity levels benefit differently:
+
+```diff
++ Simple Questions (1-2 steps):
+  GRPO alone: +4% | GRPO+CoT: +4%
+  → Exploration alone suffices
+
++ Medium Complexity (3-4 steps):
+  GRPO alone: +12% | GRPO+CoT: +28%
+  → CoT begins outpacing exploration
+
++ Complex Multi-Domain (5+ steps):
+  GRPO alone: +28% | GRPO+CoT: +61%
+  → CoT amplifies GRPO on knowledge-intensive tasks
+```
+
+### 3️⃣ Fuzzy-Matching Rewards Handle Diversity
+
+Traditional binary rewards fail on open-ended agricultural VQA:
+
+```json
+{
+  "ground_truth": "Tomato Early Blight",
+  "prediction_1": "Early blight",          // 0.85 score (high-quality partial)
+  "prediction_2": "Alternaria leaf spot",  // 1.0 score (synonym match)
+  "prediction_3": "Fungal infection",      // 0.5 score (weak keyword)
+  "prediction_4": "Rice blast",            // 0.0 score (no match)
 }
 ```
 
----
-
-## Contact
-
-For questions, collaboration, or issues:
-
-- **Email**: your.email@university.edu
-- **Issues**: [GitHub Issues](https://github.com/your-username/Agri-R1/issues)
+5-tier fuzzy matching (1.0 → 0.85 → 0.7 → 0.5 → 0.25 → 0.0) handles linguistic diversity effectively.
 
 ---
 
-## License
+## 🔬 Reproducibility
+
+This repository provides complete transparency:
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**🎯 Training**
+- ✅ Complete training scripts
+- ✅ Hyperparameter configurations
+- ✅ DeepSpeed ZeRO-3 setup
+- ✅ Checkpoint selection criteria
+
+**📊 Evaluation**
+- ✅ Benchmark evaluation scripts
+- ✅ Metrics computation code
+- ✅ Sample predictions included
+
+</td>
+<td width="50%" valign="top">
+
+**🤖 CoT Generation**
+- ✅ Generation prompts (DeepSeek-VL2)
+- ✅ Quality filtering (GPT-4, τ=8.0)
+- ✅ Data sampling strategy (18.93%)
+
+**🏆 Reward Function**
+- ✅ Format reward (0.5 weight)
+- ✅ Answer reward (2.0 weight)
+- ✅ Reasoning reward (0.5 weight)
+- ✅ Fuzzy matching implementation
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🙏 Acknowledgements
+
+This project builds upon excellent open-source work:
+
+- **[R1-V](https://github.com/StarsfieldAI/R1-V)** - GRPO training framework for vision-language models
+- **[Med-R1](https://github.com/Yuxiang-Lai117/Med-R1)** - Medical reasoning with reinforcement learning
+- **[Qwen2.5-VL](https://github.com/QwenLM/Qwen2-VL)** - Powerful base vision-language model
+- **[CDDMBench](https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench)** - Agricultural VQA benchmark
+- **[AgMMU](https://agmmu.github.io/)** - Cross-domain generalization benchmark
+
+---
+
+## 📜 License
 
 This project is licensed under the **Apache License 2.0** - see [LICENSE](LICENSE) for details.
 
@@ -420,5 +558,12 @@ This project is licensed under the **Apache License 2.0** - see [LICENSE](LICENS
 ---
 
 <div align="center">
-Made with ❤️ for the agricultural AI community
+
+### ⭐ **Anonymous ACL 2025 Submission** ⭐
+
+*Data-efficient, interpretable agricultural AI through GRPO and automated CoT*
+*Training on 18.93% data • 3B parameters • Matching 7B-13B baselines*
+
+**[🔝 Back to Top](#-agri-r1-reinforcement-learning-for-agricultural-disease-diagnosis)**
+
 </div>
