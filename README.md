@@ -39,7 +39,7 @@
 - **GRPO Reinforcement Learning**
   Robust policy optimization for agricultural VQA
 
-- **Fuzzy-Matching Reward**
+- **Domain Vocabularies with Fuzzy Matching**
   Handles linguistic diversity in open-ended responses
 
 </td>
@@ -558,10 +558,11 @@ This repository provides complete transparency:
 - ✅ Data sampling strategy (19%)
 
 **🏆 Reward Function**
+- ✅ Domain vocabularies (15 crops, 20 diseases)
 - ✅ Format reward (0.5 weight)
 - ✅ Answer reward (2.0 weight)
 - ✅ Reasoning reward (0.5 weight)
-- ✅ Fuzzy matching implementation
+- ✅ Five-tier fuzzy matching
 
 </td>
 </tr>

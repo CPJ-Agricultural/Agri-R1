@@ -240,7 +240,9 @@ Output Format:
 <answer>Your final answer here</answer>
 ```
 
-### Synonym Libraries
+### Domain Vocabularies
+
+The system uses comprehensive domain-specific vocabularies to recognize multiple ways of referring to the same plant or disease.
 
 #### Plant Variations
 
