@@ -135,7 +135,7 @@ dataset = load_from_disk("path/to/grpo_dataset")
 |-------|------|----------|-------------|
 | `image` | string | Yes | Absolute path to 384×384 image file |
 | `problem` | string | Yes | Question text (without `<image>` token) |
-| `solution` | string | Yes | Complete reference answer with `<think>` and `<answer>` tags |
+| `solution` | string | Yes | Complete reference answer with `<think> ... </think>` and `<answer> ... </answer>` tags |
 
 **Solution Format Structure:**
 ```
@@ -333,8 +333,8 @@ dataset.save_to_disk("./grpo_training_dataset")
 | `question` | string | Yes | Original question |
 | `image` | string | Yes | Image path |
 | `model_output` | string | Yes | Raw model output with tags |
-| `extracted_think` | string | Yes | Extracted reasoning from `<think>` tags |
-| `extracted_answer` | string | Yes | Extracted answer from `<answer>` tags |
+| `extracted_think` | string | Yes | Extracted reasoning from `<think> ... </think>` tags |
+| `extracted_answer` | string | Yes | Extracted answer from `<answer> ... </answer>` tags |
 | `ground_truth` | string | Yes | Correct answer from dataset |
 | `predicted_option` | string | No | Predicted option letter (for multiple choice) |
 | `correct` | boolean | No | Whether prediction matches ground truth |

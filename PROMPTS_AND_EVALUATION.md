@@ -327,7 +327,7 @@ Evaluates structure integrity and content quality:
 
 | Component | Score | Criteria |
 |-----------|-------|----------|
-| Basic Structure | 0.15 | Must have `<think>` and `<answer>` tags |
+| Basic Structure | 0.15 | Must have `<think> ... </think>` and `<answer> ... </answer>` tags |
 | Step Structure | 0.15 | 4+ steps: 0.15, 3 steps: 0.12, 2 steps: 0.08, 1 step: 0.03 |
 | Step Content Quality | 0.10 | Each step ≥30 chars: 4 steps: 0.10, 3 steps: 0.08, 2 steps: 0.05 |
 | Think Length | 0.05 | 150-800 chars: 0.05, 100-1000 chars: 0.03, ≥80 chars: 0.01 |

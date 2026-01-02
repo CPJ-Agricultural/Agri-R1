@@ -86,7 +86,7 @@
 </tr>
 <tr>
 <td>🔍</td>
-<td><b>Interpretable Output</b><br/>Structured <code>&lt;think&gt;</code> reasoning + <code>&lt;answer&gt;</code> format</td>
+<td><b>Interpretable Output</b><br/>Structured <code>&lt;think&gt; ... &lt;/think&gt;</code> reasoning + <code>&lt;answer&gt; ... &lt;/answer&gt;</code> format</td>
 </tr>
 </table>
 
