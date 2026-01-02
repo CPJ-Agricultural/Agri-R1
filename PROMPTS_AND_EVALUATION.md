@@ -350,10 +350,10 @@ Main scoring component with **dynamic evaluation** based on question type:
 | Disease Match | 1.2 | 5-tier fuzzy matching with synonym recognition |
 
 **Fuzzy Matching Tiers:**
-- **Tier 1 (1.0):** Exact match (e.g., "tomato" in answer)
-- **Tier 2 (0.85):** High-quality match (multi-word term missing 1 word)
-- **Tier 3 (0.7):** Partial match (keyword stem matching)
-- **Tier 4 (0.5):** Keyword match (core words present)
+- **Tier 1 (1.0):** Exact match (synonym from vocabulary)
+- **Tier 2 (0.85):** High quality (multi-word term missing 1 word)
+- **Tier 3 (0.7):** Partial (keyword stem matching)
+- **Tier 4 (0.5):** Keyword (core words present)
 - **Tier 5 (0.25):** Weak relevance (related terms)
 
 **Example:**

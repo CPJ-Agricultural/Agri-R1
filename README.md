@@ -51,7 +51,7 @@
   3B model matches 7B-13B baselines
 
 - **Data Efficiency**
-  Train on only 18.93% of data (-81% reduction)
+  Train on only 19% of data (-81% reduction)
 
 - **Strong Generalization**
   +26.10 points on cross-domain tasks
@@ -101,7 +101,7 @@
   <tr>
     <th>Task</th>
     <th>SFT (Full Data)</th>
-    <th>GRPO+CoT (18.93% Data)</th>
+    <th>GRPO+CoT (19% Data)</th>
     <th>Improvement</th>
   </tr>
 </thead>
@@ -169,7 +169,7 @@
 </tbody>
 </table>
 
-> 💡 **Our 3B model matches 7B-13B baselines while using only 18.93% training data**
+> 💡 **Our 3B model matches 7B-13B baselines while using only 19% training data**
 
 ---
 
@@ -256,7 +256,7 @@ python resize_images_384.py \
   --input_dir /path/to/images \
   --output_dir ./images_384
 
-# 2. Sample 18.93% training data (stratified)
+# 2. Sample 19% training data (stratified)
 python sample_dataset_20k.py \
   --input_data /path/to/full_dataset.json \
   --output_data ./sampled_20k.json \
@@ -296,7 +296,7 @@ bash src/scripts/train_sft.sh
 | Parameter | Value | Description |
 |-----------|-------|-------------|
 | **Base Model** | Qwen2.5-VL-3B-Instruct | Vision-language model |
-| **Training Data** | 200,005 samples (18.93%) | Stratified sampling |
+| **Training Data** | 200,005 samples (19%) | Stratified sampling |
 | **Hardware** | 4×A800 80GB | DeepSpeed ZeRO-3 |
 | **Batch Size** | 160 | 10/device × 4 accum × 4 GPUs |
 | **Learning Rate** | 8×10⁻⁷ | AdamW optimizer |
@@ -523,7 +523,7 @@ This repository provides complete transparency:
 **🤖 CoT Generation**
 - ✅ Generation prompts (DeepSeek-VL2)
 - ✅ Quality filtering (GPT-4, τ=8.0)
-- ✅ Data sampling strategy (18.93%)
+- ✅ Data sampling strategy (19%)
 
 **🏆 Reward Function**
 - ✅ Format reward (0.5 weight)
@@ -562,7 +562,7 @@ This project is licensed under the **Apache License 2.0** - see [LICENSE](LICENS
 ### ⭐ **Anonymous ACL 2025 Submission** ⭐
 
 *Data-efficient, interpretable agricultural AI through GRPO and automated CoT*
-*Training on 18.93% data • 3B parameters • Matching 7B-13B baselines*
+*Training on 19% data • 3B parameters • Matching 7B-13B baselines*
 
 **[🔝 Back to Top](#-agri-r1-reinforcement-learning-for-agricultural-disease-diagnosis)**
 
