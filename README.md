@@ -182,7 +182,7 @@
 - 📄 **Paper**: Liu et al., "A multimodal benchmark dataset and model for crop disease diagnosis", ECCV 2024
 - 🔗 **Dataset**: [https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench](https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench)
 - 📊 **Scale**: 1.05M training samples, 3,963 test samples
-- 🌱 **Coverage**: 16 crop types, 33 disease categories
+- 🌱 **Coverage**: Covers crop recognition, disease diagnosis, knowledge QA and other dimensions
 - 🎯 **Tasks**: Disease diagnosis, crop recognition, knowledge QA
 
 ### 🌍 AgMMU (Cross-Domain Generalization)
