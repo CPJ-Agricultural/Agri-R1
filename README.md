@@ -304,6 +304,38 @@ bash src/scripts/train_sft.sh
 | **GRPO K** | 3 candidates | Temperature 0.7 |
 | **Training Time** | ~98 hours | From scratch to best checkpoint |
 
+#### Key Training Design Choices
+
+Our training configuration prioritizes **stability and memory efficiency** through careful parameter tuning:
+
+**Batch Configuration (10×4×4=160)**:
+- Micro-batch: 10 samples/GPU (smaller batch reduces memory peaks)
+- Gradient accumulation: 4 steps (maintains gradient quality)
+- Tested 20×2×4: caused frequent OOM ❌
+- Final 10×4×4: stable at 78-80GB per GPU ✅
+
+**GRPO Candidates (K=3)**:
+- Med-R1 uses K=4 for medical MCQs
+- Agricultural responses are longer (487 chars reasoning + 69 chars answer)
+- K=4 caused OOM; K=3 reduces memory by 25% while maintaining exploration
+
+**Gradient Clipping (0.3)**:
+- Lower than typical 1.0 threshold
+- Prevents gradient explosion from reward variance (fuzzy matching 0-3.0)
+- Without clipping: gradient norms >10.0 → NaN losses at steps 200-300
+
+**DeepSpeed ZeRO-3**:
+- Balances GPU memory across all devices
+- ZeRO-2: GPU 0 at 90%, others at 20-30% (imbalanced)
+- ZeRO-3: All GPUs at 80-85% (balanced) → +25% batch size
+
+**Learning Rate (8×10⁻⁷)**:
+- 10× smaller than typical VLM fine-tuning
+- Higher rates (5×10⁻⁶) caused KL divergence >0.04 → early stopping
+- Conservative rate maintains stable KL at 0.036-0.040 for 3,027 steps
+
+📖 **Full parameter rationale**: See paper Appendix A.3 for detailed explanations of all configuration choices.
+
 ---
 
 ## 🔍 Inference & Evaluation
