@@ -228,7 +228,7 @@ cd ../..
 **Training**
 - GPU: 4×A800 80GB
 - CUDA: 11.8+ with Flash Attention 2
-- Time: ~98 hours (97.7h)
+- Time: ~98 hours
 
 </td>
 <td width="50%" valign="top">
@@ -302,7 +302,7 @@ bash src/scripts/train_sft.sh
 | **Learning Rate** | 8×10⁻⁷ | AdamW optimizer |
 | **Epochs** | 3 (~3,750 steps) | Optimal: step 1,800 |
 | **GRPO K** | 3 candidates | Temperature 0.7 |
-| **Training Time** | ~98 hours (97.7h) | From scratch to best checkpoint |
+| **Training Time** | ~98 hours | From scratch to best checkpoint |
 
 ---
 

@@ -49,7 +49,7 @@ This document details all data formats used throughout the Agri-R1 project, from
 | `conversations[].value` | string | Yes | Message content. Human messages may include `<image>` token |
 
 **Example Dataset Statistics:**
-- Total samples: 200,000
+- Total samples: 200,005
 - Images: 384×384 pixels (preprocessed)
 - Average conversations per image: 1-3 turns
 - Dataset size: ~50GB (with images)
@@ -646,7 +646,7 @@ print(f"Rate: {report['validity_rate']:.2%}")
 ### Training Dataset Statistics (Example)
 
 ```
-Total Samples: 200,000
+Total Samples: 200,005
 Image Resolution: 384×384 pixels
 Total Size: ~50GB
 
@@ -656,7 +656,7 @@ Conversations per Sample:
   - Average: 1.8
 
 Question Types:
-  - Disease Identification: 99.6% (199,200)
+  - Disease Identification: 99.6% (199,205)
   - Prevention/Treatment: 0.4% (800)
 
 COT Statistics:

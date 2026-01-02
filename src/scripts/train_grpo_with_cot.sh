@@ -72,6 +72,7 @@ deepspeed --num_gpus=4 "${REPO_ROOT}/src/r1-v/src/open_r1/grpo_vqa.py" \
   --dataloader_num_workers 4 \
   --dataloader_pin_memory true \
   --max_pixels 147456 \
+
   --max_grad_norm 0.3 \
   --report_to wandb \
   --seed 42

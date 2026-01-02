@@ -282,7 +282,7 @@ DISEASE_VARIATIONS = {
 }
 ```
 
-**Total Diseases Covered:** 25+ common plant diseases and healthy status
+**Total Diseases Covered:** 20 common plant diseases and healthy status
 
 #### Treatment Keywords
 
@@ -431,8 +431,8 @@ Weight Distribution:
 
 **CDDMBench Metrics:**
 - **Accuracy**: Percentage of correct predictions
-- **Crop Classification Accuracy**: 40 crop species
-- **Disease Classification Accuracy**: 120+ disease types
+- **Crop Classification Accuracy**: 15 crop types
+- **Disease Classification Accuracy**: 20 disease categories
 - **Knowledge QA Score**: 1-10 expert evaluation
 
 **AgMMU Metrics:**
