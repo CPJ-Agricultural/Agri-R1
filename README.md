@@ -289,7 +289,7 @@ Apache License 2.0 - See [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-**ACL 2025 Submission**
+**ACL 2026 Submission**
 
 *Achieving data efficiency, interpretability, and robust generalization through reasoning-enhanced reinforcement learning*
 
