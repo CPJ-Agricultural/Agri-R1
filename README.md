@@ -1,6 +1,6 @@
 <div align="center">
 
-# Agri-R1: Empowering Generalizable Agricultural Reasoning with Reinforcement Learning
+# Agri-R1: Agricultural Reasoning for Disease Diagnosis via Automated-Synthesis and Reinforcement Learning
 
 **Reasoning-Enhanced Vision-Language Models for Agricultural Disease Diagnosis**
 
@@ -15,16 +15,16 @@
 
 ## Overview
 
-Current agricultural vision-language models face three issues:
-- **Data Hunger**: Need millions of labeled samples
-- **Black-Box Predictions**: No reasoning or explanations
-- **Poor Generalization**: Performance collapses on new crops/regions
+Current agricultural vision-language models face three critical limitations:
+- **Data Hunger**: Require massive labeled datasets that are prohibitively expensive in resource-constrained agricultural settings
+- **Limited Interpretability**: Produce diagnostic labels without explicating underlying reasoning ("black-box" behavior)
+- **Poor Generalization**: Memorize dataset-specific patterns, leading to sharp performance drops under domain shifts
 
-We introduce **Agri-R1**, combining automated reasoning synthesis with Group Relative Policy Optimization (GRPO) to address these limitations. The framework achieves competitive performance using only 19% of training data while generating interpretable step-by-step diagnostic reasoning.
+We introduce **Agri-R1**, to our knowledge the first GRPO-based framework specifically designed for open-ended, reasoning-enhanced agricultural VQA. Our framework automates high-quality reasoning data generation via vision-language synthesis and LLM-based filtering, using only 19% of available samples. Training employs Group Relative Policy Optimization (GRPO) with a novel domain-aware fuzzy-matching reward function.
 
 <div align="center">
-  <img src="Images/pipeline.jpg" width="90%"/>
-  <p><i>Two-stage framework: (1) Automated Reasoning generation via VLM + LLM filtering, (2) GRPO training with domain-aware rewards</i></p>
+  <img src="Images/figure1_construct image.jpg" width="90%"/>
+  <p><i>Two-stage framework: (1) Automated Reasoning generation via VLM + LLM-based filtering, (2) GRPO training with domain-aware rewards and five-tier fuzzy matching</i></p>
 </div>
 
 ---
@@ -38,8 +38,8 @@ We introduce **Agri-R1**, combining automated reasoning synthesis with Group Rel
 ### In-Distribution (CDDMBench)
 | Task | SFT | Agri-R1 | Gain |
 |------|-----|---------|------|
-| Crop | 90.97% | **92.58%** | +1.6% |
-| Disease | 58.84% | **72.50%** | +23.2% |
+| Crop | 90.97% | **92.58%** | +1.8% |
+| Disease | 58.84% | **75.30%** | +27.9% |
 | Knowledge QA | 63.0 | **84.0** | +33.3% |
 
 </td>
@@ -57,19 +57,19 @@ We introduce **Agri-R1**, combining automated reasoning synthesis with Group Rel
 </tr>
 </table>
 
-**Main takeaway**: Our 3B model trained on 19% data matches 7B-13B baselines on cross-domain tasks, with +26.10 points improvement over SFT.
+**Main takeaway**: Our 3B model trained on 19% data matches 7B–13B baselines on cross-domain tasks, with +26.10 points improvement over SFT.
 
 ---
 
 ## Why Reasoning Matters
 
-We analyze how explicit reasoning scales with task complexity:
+Explicit reasoning scales with task complexity:
 
 <div align="center">
   <img src="Images/figure4_complexity_comparison.png" width="65%"/>
 </div>
 
-- **Simple questions**: GRPO alone gives +4%, reasoning adds nothing
+- **Simple questions**: GRPO alone gives +4%, reasoning adds little
 - **Medium complexity**: GRPO +12%, GRPO+Reasoning +28%
 - **Complex multi-domain**: GRPO +28%, GRPO+Reasoning **+61%**
 
@@ -79,7 +79,7 @@ For knowledge-intensive agricultural diagnostics, explicit reasoning provides 2.
 
 ## Method
 
-### Stage 1: Automated Reasoning Generation
+### Stage 1: Automated Reasoning Generation (Generative Reasoning Enhancement Engine)
 
 ```bash
 cd src/stage1_reasoning
@@ -105,6 +105,15 @@ Output format:
 }
 ```
 
+**Quality Rubric** (threshold τ=8.0/10.0):
+| Criterion | Score | Focus |
+|-----------|-------|-------|
+| Accuracy | 0–2 | Correct plant/disease ID; no hallucination |
+| Completeness | 0–2 | Key elements: plant, symptoms, disease |
+| Detail | 0–2 | Measurements, colors, distribution |
+| Relevance | 0–2 | Diagnosis-relevant; no redundancy |
+| Clarity | 0–2 | Professional terms; logical flow |
+
 ### Stage 2: GRPO Training
 
 ```bash
@@ -120,12 +129,21 @@ bash src/scripts/train_sft.sh
 - Batch size: 160 (10/device × 4 accum × 4 GPUs)
 - Learning rate: 8e-7 with cosine schedule
 - GRPO: K=3 candidates, temperature=0.7
-- DeepSpeed ZeRO-3 for memory balancing
+- DeepSpeed ZeRO-3, BF16 mixed precision
 
 **Reward function** (total range [0, 3.0]):
-- Format (17%): Validates `<think>...</think><answer>...</answer>` structure
-- Answer correctness (67%): Five-tier fuzzy matching on domain vocabularies (15 crops, 20 diseases)
-- Reasoning quality (17%): Logical coherence, professional terminology, diagnostic chain completeness
+- Format (17%, w=0.5): Validates `<think>...</think><answer>...</answer>` structure
+- Answer correctness (67%, w=2.0): Five-tier fuzzy matching on domain vocabularies (crops + diseases)
+- Reasoning quality (17%, w=0.5): Logical coherence, professional terminology, diagnostic chain completeness
+
+**Five-tier fuzzy matching**:
+| Tier | Score | Criteria |
+|------|-------|----------|
+| 1 | 1.00 | Exact synonym match from vocabulary |
+| 2 | 0.85 | High-quality: multi-word term, missing 1 word |
+| 3 | 0.70 | Partial: keyword stem matching (first 6 chars) |
+| 4 | 0.50 | Keyword: core word present (length >3) |
+| 5 | 0.25 | Weak: related terms (e.g., blight↔disease) |
 
 ---
 
@@ -137,7 +155,7 @@ bash src/scripts/train_sft.sh
   <img src="Images/figure2_disease_improvement.png" width="70%"/>
 </div>
 
-High-frequency crops (>5% of data) show stable improvements, but low-frequency crops exhibit extreme variance due to gradient competition. Cherry recognition drops 59% because Apple (29% frequency) receives 21× more gradient updates, overwriting shared representations.
+High-frequency crops (>5%) show stable improvements (σ=3.2 pp), but low-frequency crops (<2%) exhibit high variance (σ=22.1 pp) due to gradient competition. Cherry recognition drops 59% because Apple (29% frequency) receives 21× more gradient updates. A frequency-aware (FA) reward variant recovers all low-frequency crops to above their SFT baselines.
 
 ### Cross-Domain Generalization
 
@@ -145,7 +163,7 @@ High-frequency crops (>5% of data) show stable improvements, but low-frequency c
   <img src="Images/figure3_agmmu_radar_improved.png" width="60%"/>
 </div>
 
-SFT collapses from 91% (in-domain) to 40% (cross-domain) - a 51-point drop. GRPO maintains 66% on new scenarios because exploration learns domain-invariant features instead of dataset-specific patterns.
+SFT collapses from 90.97% (in-domain) to 40.00% (cross-domain) — a 50.97-point drop. GRPO maintains 59.75% on new scenarios, and Agri-R1 further boosts generalization to 66.10% (+26.10 points over SFT).
 
 ### Case Study: Reasoning Quality
 
@@ -153,7 +171,7 @@ SFT collapses from 91% (in-domain) to 40% (cross-domain) - a 51-point drop. GRPO
   <img src="Images/figure5_cot-image.png" width="85%"/>
 </div>
 
-GRPO+Reasoning (8.0/10) provides actionable details like solution temperature (56°C), treatment duration (5 min), chemical concentration (1% KMnO₄). Standard GRPO (7.0/10) gives generic advice without operational parameters.
+Agri-R1 (8/10) provides actionable details like variety names (Zao 58, Xiangzaoxian 3), treatment conditions (56°C for 5 min), and fungicide dilution ratios (800–1200×). Standard GRPO (7/10) identifies correct strategies but lacks operational specificity. SFT (6/10) gives broad, unfocused advice.
 
 ---
 
@@ -202,7 +220,7 @@ python evaluate.py \
 ```
 Agri-R1/
 ├── Images/                          # Paper figures
-│   ├── pipeline.jpg
+│   ├── figure1_construct image.jpg  # Framework overview
 │   ├── figure2_disease_improvement.png
 │   ├── figure3_agmmu_radar_improved.png
 │   ├── figure4_complexity_comparison.png
@@ -214,25 +232,25 @@ Agri-R1/
 │   │   ├── train_grpo_no_reasoning.sh    # Ablation (GRPO only)
 │   │   └── train_sft.sh            # Baseline (SFT)
 │   │
-│   ├── stage1_reasoning/                 # Reasoning data generation
+│   ├── stage1_reasoning/            # Reasoning data generation
 │   │   ├── resize_images_384.py
 │   │   ├── sample_dataset_20k.py
 │   │   ├── generate_reasoning.py
 │   │   ├── enhance_reasoning.py
 │   │   └── README.md
 │   │
-│   ├── r1-v/                       # GRPO training framework
+│   ├── r1-v/                        # GRPO training framework
 │   │   ├── src/open_r1/
-│   │   │   ├── grpo_vqa.py         # Reward function
+│   │   │   ├── grpo_vqa.py          # Reward function
 │   │   │   └── trainer/grpo_trainer.py
-│   │   └── configs/                # DeepSpeed configs
+│   │   └── configs/                 # DeepSpeed configs
 │   │
-│   └── eval_vqa/                   # Evaluation suite
-│       ├── cddmbench/              # In-distribution tests
-│       └── agmmu/                  # Cross-domain tests
+│   └── eval_vqa/                    # Evaluation suite
+│       ├── cddmbench/               # In-distribution tests
+│       └── agmmu/                   # Cross-domain tests
 │
-├── DATA_FORMAT.md                  # Dataset specifications
-├── PROMPTS_AND_EVALUATION.md       # Prompt engineering & rewards
+├── DATA_FORMAT.md                   # Dataset specifications
+├── PROMPTS_AND_EVALUATION.md        # Prompt engineering & rewards
 └── README.md
 ```
 
@@ -241,15 +259,15 @@ Agri-R1/
 ## Datasets
 
 ### CDDMBench (In-Distribution)
-**Crop Disease Diagnosis Multimodal Benchmark** - Liu et al., ECCV 2024
+**Crop Disease Diagnosis Multimodal Benchmark** — Liu et al., ECCV 2024
 
-- 1.05M training samples, 3,963 test samples
-- 15 crop types, 20 disease categories
+- ~1.05M training samples, 3,963 test samples
+- 16 crop species, 60 disease categories
 - Tasks: crop recognition, disease diagnosis, knowledge QA
 - 🔗 [Dataset](https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench)
 
 ### AgMMU (Cross-Domain)
-**Agricultural Multimodal Understanding** - Gauba et al., 2025
+**Agricultural Multimodal Understanding** — Gauba et al., 2025
 
 - 770 multiple-choice questions across 5 agricultural tasks
 - Global scenarios covering diverse regions and crops
@@ -261,10 +279,11 @@ Agri-R1/
 ## Citation
 
 ```bibtex
-@article{agri-r1-2025,
-  title={Agri-R1: Empowering Generalizable Agricultural Reasoning in Vision-Language Models with Reinforcement Learning},
+@inproceedings{agri-r1-2026,
+  title={Agri-R1: Agricultural Reasoning for Disease Diagnosis via Automated-Synthesis and Reinforcement Learning},
   author={[Authors]},
-  year={2025}
+  booktitle={Proceedings of the 34th ACM International Conference on Multimedia (ACM MM '26)},
+  year={2026}
 }
 ```
 
@@ -273,23 +292,23 @@ Agri-R1/
 ## Acknowledgments
 
 This work builds on:
-- [R1-V](https://github.com/StarsfieldAI/R1-V) - GRPO framework for VLMs
-- [Med-R1](https://github.com/Yuxiang-Lai117/Med-R1) - Medical reasoning with RL
-- [Qwen2.5-VL](https://github.com/QwenLM/Qwen2-VL) - Base vision-language model
-- [CDDMBench](https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench) - Agricultural VQA benchmark
-- [AgMMU](https://agmmu.github.io/) - Cross-domain evaluation
+- [R1-V](https://github.com/StarsfieldAI/R1-V) — GRPO framework for VLMs
+- [Med-R1](https://github.com/Yuxiang-Lai117/Med-R1) — Medical reasoning with RL
+- [Qwen2.5-VL](https://github.com/QwenLM/Qwen2-VL) — Base vision-language model
+- [CDDMBench](https://github.com/UnicomAI/UnicomBenchmark/tree/main/CDDMBench) — Agricultural VQA benchmark
+- [AgMMU](https://agmmu.github.io/) — Cross-domain evaluation
 
 ---
 
 ## License
 
-Apache License 2.0 - See [LICENSE](LICENSE) for details.
+Apache License 2.0 — See [LICENSE](LICENSE) for details.
 
 ---
 
 <div align="center">
 
-**ACL 2026 Submission**
+**ACM MM 2026 Submission**
 
 *Achieving data efficiency, interpretability, and robust generalization through reasoning-enhanced reinforcement learning*
 

@@ -1,4 +1,4 @@
-# Stage 1: Reasoning Data Generation Pipeline
+；# Stage 1: Reasoning Data Generation Pipeline
 
 This directory contains scripts for generating Chain-of-Thought (Reasoning) training data for agricultural Visual Question Answering (VQA) tasks.
 

@@ -1,0 +1,1426 @@
+%%
+%% This is file `sample-sigconf.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `all,proceedings,bibtex,sigconf')
+%%
+%% IMPORTANT NOTICE:
+%%
+%% For the copyright see the source file.
+%%
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-sigconf.tex.
+%%
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%%
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%% The first command in your LaTeX source must be the \documentclass
+%% command.
+%%
+%% For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}.
+%%
+%% When submitting camera ready or to TAPS, please change the command
+%% to \documentclass[sigconf]{acmart} or whichever template is required
+%% for your publication.
+%%
+%%
+\documentclass[sigconf,anonymous,review]{acmart}
+%\documentclass[sigconf]{acmart}
+%%
+%\documentclass[sigconf]{acmart}
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+
+\usepackage{dsfont}   % for \mathds{1} indicator function
+\usepackage{microtype}
+\usepackage{multirow}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmlicensed}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXX.XXXXXXX.XXXXXXX}
+%% These commands are for a PROCEEDINGS abstract or paper.
+%\acmConference[Conference acronym 'XX]{Make sure to enter the correct
+%  conference title from your rights confirmation email}{June 03--05,
+%  2018}{Woodstock, NY}
+\acmConference[ACM MM '26]{Proceedings of the 34th ACM International Conference on Multimedia}{November 10--14, 2026}{Rio de Janeiro, Brazil}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+\acmBooktitle{Proceedings of the 34th ACM International Conference on Multimedia (ACM MM '26)}
+\acmISBN{978-1-4503-XXXX-X/2026/04}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{Agri-R1: Agricultural Reasoning for Disease Diagnosis via Automated-Synthesis and Reinforcement Learning}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Ben Trovato}
+\authornote{Both authors contributed equally to this research.}
+\email{trovato@corporation.com}
+\orcid{1234-5678-9012}
+\author{G.K.M. Tobin}
+\authornotemark[1]
+\email{webmaster@marysville-ohio.com}
+\affiliation{%
+  \institution{Institute for Clarity in Documentation}
+  \city{Dublin}
+  \state{Ohio}
+  \country{USA}
+}
+
+\author{Lars Th{\o}rv{\"a}ld}
+\affiliation{%
+  \institution{The Th{\o}rv{\"a}ld Group}
+  \city{Hekla}
+  \country{Iceland}}
+\email{larst@affiliation.org}
+
+\author{Valerie B\'eranger}
+\affiliation{%
+  \institution{Inria Paris-Rocquencourt}
+  \city{Rocquencourt}
+  \country{France}
+}
+
+\author{Aparna Patel}
+\affiliation{%
+ \institution{Rajiv Gandhi University}
+ \city{Doimukh}
+ \state{Arunachal Pradesh}
+ \country{India}}
+
+\author{Huifen Chan}
+\affiliation{%
+  \institution{Tsinghua University}
+  \city{Haidian Qu}
+  \state{Beijing Shi}
+  \country{China}}
+
+\author{Charles Palmer}
+\affiliation{%
+  \institution{Palmer Research Laboratories}
+  \city{San Antonio}
+  \state{Texas}
+  \country{USA}}
+\email{cpalmer@prl.com}
+
+\author{John Smith}
+\affiliation{%
+  \institution{The Th{\o}rv{\"a}ld Group}
+  \city{Hekla}
+  \country{Iceland}}
+\email{jsmith@affiliation.org}
+
+\author{Julius P. Kumquat}
+\affiliation{%
+  \institution{The Kumquat Consortium}
+  \city{New York}
+  \country{USA}}
+\email{jpkumquat@consortium.net}
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Trovato et al.}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+Agricultural disease diagnosis challenges VLMs, as conventional fine-tuning requires extensive labels, lacks interpretability, and generalizes poorly. While reasoning improves model robustness, existing methods rely on costly expert annotations and rarely address the open-ended, diverse nature of agricultural queries.
+To address these limitations, we propose \textbf{Agri-R1}, a reasoning-enhanced large model for agriculture.
+Our framework automates high-quality reasoning data generation via vision-language synthesis and LLM-based filtering, using only 19\% of available samples.
+Training employs Group Relative Policy Optimization (GRPO) with a novel reward function that integrates domain-specific lexicons and fuzzy matching to assess both correctness and linguistic flexibility in open-ended responses.
+Evaluated on CDDMBench, our resulting 3B-parameter model achieves performance competitive with 7B- to 13B-parameter baselines, showing a +27.9\% relative gain in disease recognition accuracy, +33.3\% in agricultural knowledge QA, and a +26.10-point improvement in cross-domain generalization over standard fine-tuning. These results suggest that automated reasoning synthesis paired with domain-aware reward design may provide a broadly applicable paradigm for RL-based VLM adaptation in data-scarce specialized domains. Our code and data are publicly available at: \textcolor{blue}{\url{https://github.com/CPJ-Agricultural/Agri-R1}}.
+\end{abstract}
+
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>00000000.0000000.0000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+
+% \ccsdesc[500]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+% \ccsdesc[300]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+% \ccsdesc{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+% \ccsdesc[100]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+
+% %%
+% %% Keywords. The author(s) should pick words that accurately describe
+% %% the work being presented. Separate the keywords with commas.
+% \keywords{Do, Not, Use, This, Code, Put, the, Correct, Terms, for,
+%   Your, Paper}
+\ccsdesc[500]{Computing methodologies~Artificial intelligence}
+\ccsdesc[300]{Computing methodologies~Computer vision}
+%\ccsdesc[300]{Computing methodologies~Reinforcement learning}
+\ccsdesc[300]{Applied computing~Agriculture}
+
+\keywords{Agricultural Disease Diagnosis, Vision-language Models, Reinforcement Learning, Group Relative Policy Optimization, Reasoning VLM}
+%% A "teaser" image appears between the author and affiliation
+%% information and the body of the document, and typically spans the
+%% page.
+% \begin{teaserfigure}
+%   \includegraphics[width=\textwidth]{sampleteaser}
+%   \caption{Seattle Mariners at Spring Training, 2010.}
+%   \Description{Enjoying the baseball game from the third-base
+%   seats. Ichiro Suzuki preparing to bat.}
+%   \label{fig:teaser}
+% \end{teaserfigure}
+
+% \received{20 February 2026}
+% \received[revised]{12 March 2009}
+% \received[accepted]{5 June 2009}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+Agricultural crop diseases pose a persistent threat to global food security, causing substantial yield losses and economic damage~\cite{savary2020modeling,gai2024plant,shahbazi2025losses}. Accurate and timely diagnosis is essential for effective crop protection, yet remains challenging due to complex visual symptoms and limited expert availability in many regions~\cite{upadhyay2025deep,ngugi2024revolutionizing,buja2021advances,mohanty2016using}. Recent advances in Vision-Language Models (VLMs) have demonstrated significant promise for automated diagnosis through visual question answering (VQA), enabling farmers to submit crop images accompanied by natural language queries to obtain diagnostic guidance~\cite{lu2024application,sapkota2025multi}.
+%Recent advances in Vision-Language Models (VLMs) show promise for automated diagnosis via visual question answering (VQA), allowing farmers to submit crop images with natural language queries for diagnostic guidance~\cite{lu2024application,sapkota2025multi}.
+
+% The dominant paradigm for adapting VLMs to agricultural tasks is supervised fine-tuning (SFT). While effective in-domain, SFT faces three critical limitations that impede real-world deployment: (1) data hunger, requiring massive labeled datasets that are costly to acquire in resource-constrained domains~\cite{liu2024multimodal}; (2) limited interpretability, models produce diagnostic labels without explaining their reasoning, creating a ``black-box'' that undermines farmer trust and prevents validation by agricultural extension agents~\cite{zhi2025medgr,chu2025sft}; and (3) poor generalization, as models memorize dataset-specific patterns rather than robust diagnostic reasoning, leading to sharp performance drops under domain shifts (e.g., new crops, lighting conditions, or co-infections)~\cite{pan2025medvlm,wu2023laboratory,nanavaty2024integrating,chen2025sft}.
+% These limitations collectively point to a fundamental gap: the need for models that are not only accurate but also data-efficient, interpretable, and robust to the open-ended diversity of real-world agricultural queries.
+
+% Structured reasoning enhances model transparency by generating explicit intermediate steps, while reinforcement learning (RL) offers an alternative to SFT by promoting
+
+The predominant paradigm for adapting VLMs to agricultural tasks is SFT. Although effective within the training domain, SFT suffers from three critical limitations that hinder its real-world deployment. First, it is data-hungry, requiring massive labeled datasets that are prohibitively expensive to obtain in resource-constrained agricultural settings~\cite{liu2024multimodal}. Second, it offers limited interpretability, as models produce diagnostic labels without explicating their underlying reasoning. This "black-box" behavior undermines farmer trust and prevents effective validation by agricultural extension agents~\cite{zhi2025medgr,chu2025sft}. Third, it generalizes poorly, as models tend to memorize dataset-specific patterns rather than acquire robust diagnostic reasoning. Consequently, their performance deteriorates sharply under domain shifts, such as encountering new crops, varying lighting conditions, or concurrent infections~\cite{pan2025medvlm,wu2023laboratory,nanavaty2024integrating,chen2025sft}. Collectively, these limitations reveal a fundamental gap: the need for models that are not only accurate but also data-efficient, interpretable, and robust to the open-ended diversity inherent in real-world agricultural queries.
+
+Structured reasoning enhances model transparency by generating explicit intermediate reasoning steps, while reinforcement learning (RL) presents a promising alternative to SFT by promoting diverse reasoning strategies through reward guidance~\cite{shakya2023reinforcement}. GRPO~\cite{shao2024deepseekmath,wang2025grpo,tong2025delving} has achieved strong generalization in mathematical and coding tasks via group-based advantage estimation. However, a direct application in agriculture faces two synergistic bottlenecks. First, constructing high-quality CoT data is prohibitively expensive, requiring domain experts to manually annotate reasoning chains. Second, existing RL applications in medical VQA~\cite{yi2022automated,hu2023reinforcement} primarily target \emph{closed-set multiple-choice questions} with binary rewards.
+This paradigm is fundamentally mismatched with agricultural VQA, which requires evaluating open-ended, linguistically diverse responses for both factual correctness and reasoning quality---a challenge that remains unaddressed in prior work.
+
+To overcome these bottlenecks, we introduce \textbf{Agri-R1}, to our knowledge the first GRPO-based framework designed specifically for open-ended, reasoning-enhanced agricultural VQA. We integrate three key innovations to simultaneously achieve data efficiency, interpretability, and robustness: (1) we eliminate manual CoT annotation costs through an automated pipeline that synthesizes reasoning chains via VLMs and filters high-quality data using LLM-as-a-Judge, constructing a compact yet powerful dataset from only 19\% of the original corpus; (2) to address the unique challenge of evaluating open-ended answers, we construct agricultural domain vocabularies and design a novel fuzzy-matching reward function. This function assesses not just correctness but also the linguistic appropriateness of responses, enabling effective policy optimization far beyond binary rewards; (3) we demonstrate that GRPO-driven policy optimization, fueled by our automated reasoning data and specialized reward, enables a remarkably compact \textbf{3B-parameter model} to achieve superior accuracy and cross-domain generalization compared to significantly larger baselines trained on full datasets.
+
+Our primary contributions, findings, and results are as follows:
+\begin{itemize}
+\item We propose \textbf{Agri-R1}, to our knowledge the first GRPO-based framework specifically designed for agricultural disease diagnosis. It introduces a fully automated pipeline that synthesizes and filters high-quality Chain-of-Thought reasoning data without requiring any expert annotations, using only 19\% of the original samples.
+\item We design a novel domain-aware reward mechanism based on agricultural lexicons and multi-tier fuzzy matching. This mechanism jointly evaluates both factual correctness and linguistic flexibility in open-ended responses, effectively overcoming the critical limitations of binary-reward systems.
+\item We demonstrate that a compact 3B-parameter model trained with our framework significantly outperforms much larger (7B--13B) supervised fine-tuning baselines across disease recognition accuracy (+27.9\% relative gain), agricultural knowledge QA (+33.3\% relative gain), and cross-domain generalization (+26.10 points on AgMMU), highlighting the powerful synergy between automated reasoning synthesis and reinforcement learning exploration.
+\item Through detailed analysis (Sections \ref{sec:bias_analysis} and \ref{sec:disease_analysis}), we identify frequency-induced gradient competition as a key failure mode that degrades performance on rare crops and diseases under standard GRPO, revealing important insights for improving long-tail robustness in future RL-based VLM adaptation.
+\end{itemize}
+
+% \begin{itemize}
+%     \item We propose Agri-R1, to our knowledge the first GRPO-based framework designed for agricultural disease diagnosis, introducing an automated pipeline to generate and filter reasoning data without relying on expert annotations.
+%     \item We design a novel reward mechanism based on agricultural lexicons and fuzzy matching to evaluate both correctness and flexibility in open-ended agricultural responses, addressing a critical limitation of binary-reward systems.
+%     \item We show that a significantly smaller model trained with our framework surpasses larger baselines in accuracy, reasoning ability, and cross-domain generalization, demonstrating the synergistic effect of structured reasoning data and reinforcement learning exploration. We also identify frequency-induced gradient competition as a key failure mode and validate a frequency-aware reward variant that recovers rare-category performance.
+% \end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/figure1_construct_image.pdf}
+\caption{
+Overview of our proposed two-stage GRPO framework. In Stage 1, raw VQA pairs are transformed into reasoning exemplars: a SOTA VLM generates structured reasoning chains, which are subsequently filtered by an LLM-based judge to ensure quality. Stage 2 performs GRPO-based policy learning, incorporating domain vocabulary construction with proposed five-tier fuzzy matching to handle linguistic variability, along with a three-component reward function (Format, Answer, Reasoning) to guide optimization. Group-relative advantage normalization is further applied to enable stable policy updates.
+%Overview of our Two-Stage GRPO Framework for Agricultural Disease Reasoning.} Stage 1 transforms raw VQA pairs into reasoning exemplars: a state-of-the-art VLM generates reasoning chains, and an LLM-based judge filters outputs. Stage 2 employs GRPO-based policy learning with Domain Vocabulary Construction: 5-tier fuzzy matching handles linguistic diversity, three-component reward function (Format + Answer + Reasoning) guides optimization, and group relative advantage normalization enables stable updates. This pipeline enables our 3B model to learn robust reasoning from synthesized data.
+}
+\Description{A two-stage framework diagram. Stage 1 shows automated reasoning data generation using a VLM generator and LLM-based filtering. Stage 2 shows GRPO-based reinforcement learning with domain vocabulary and reward function components.}
+\label{fig:framework}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Related Work}
+\label{sec:related_work}
+
+% \paragraph{Agricultural Vision-Language Models.} Recent advances in vision-language models (VLMs) have spurred domain-specific adaptations for agricultural disease diagnosis~\cite{zhou2024few,awais2025agrogpt,arshad2025leveraging}. Existing studies typically follow two paradigms: some focus on compact model design, such as ~\citet{cao2025small}, who employ image-text contrastive learning for few-shot crop disease identification; others incorporate domain knowledge for enhanced representational alignment, such as ~\citet{yao2024multimodal}, who integrate meteorological indicators for multimodal drought detection. Large-scale data initiatives, such as AGBase-2000K, have further facilitated knowledge integration through comprehensive multimodal agricultural corpora~\cite{gauba2025agmmu}. Despite these efforts, ~\citet{liu2024multimodal} reveal that SFT-trained models remain prone to performance degradation under domain shifts, limiting robustness in open-ended agricultural VQA.
+Agricultural Vision-Language Models.
+Recent advances in VLMs have driven the development of domain-specific adaptations for agricultural disease diagnosis~\cite{zhou2024few,awais2025agrogpt,arshad2025leveraging}. Existing studies generally follow two main paradigms. The first focuses on compact model design, as exemplified by~\citet{cao2025small}, who employ image-text contrastive learning for few-shot crop disease identification. The second integrates domain-specific knowledge to enhance representational alignment, as demonstrated by~\citet{yao2024multimodal} through the incorporation of meteorological indicators for multimodal drought detection. In addition, large-scale data initiatives such as AGBase-2000K have facilitated richer knowledge integration via comprehensive multimodal agricultural corpora~\cite{gauba2025agmmu}. Despite these advances,~\citet{liu2024multimodal} reveal that models trained solely via SFT remain prone to substantial performance degradation under domain shifts, highlighting the limited robustness and interpretability of current approaches in open-ended agricultural VQA.
+
+% \paragraph{Chain-of-Thought for Interpretability.}
+% The inherent ``black-box'' nature of large language models presents a fundamental barrier to their adoption in high-stakes applications such as agriculture, where the need for transparent and trustworthy decision-making is paramount~\cite{sun2022black,bommasani2021opportunities,martin2024xai}. To address this, CoT prompting~\cite{wei2022chain} has emerged as a prominent method for enhancing model interpretability, eliciting explicit, step-by-step reasoning paths from models. Subsequent work has aimed to improve the reliability of CoT; for instance, ~\citet{wang2022self} enhance CoT robustness through self-consistency by aggregating predictions across multiple reasoning paths. However, a critical bottleneck persists: the manual curation of high-quality, domain-specific CoT demonstrations remains prohibitively expensive and difficult to scale~\cite{wang2025beyond,lightman2023letsverifystepstep,kim2023cotcollectionimprovingzeroshot}. This challenge is especially pronounced in agriculture, where expert knowledge is required to validate the correctness and relevance of diagnostic reasoning chains, underscoring the need for scalable, automated solutions for CoT generation.
+\paragraph{Chain-of-Thought for Interpretability.}
+
+The inherent ``black-box'' nature of VLMs poses a fundamental barrier to their adoption in high-stakes applications such as agriculture, where transparent and trustworthy decision-making is essential~\cite{sun2022black,bommasani2021opportunities,martin2024xai}. To address this limitation, Chain-of-Thought (CoT) prompting~\cite{wei2022chain} has emerged as a prominent technique for improving model interpretability by eliciting explicit, step-by-step reasoning paths. Subsequent research has sought to enhance the reliability of CoT; for instance, self-consistency~\cite{wang2022self} improves robustness by aggregating predictions across multiple reasoning trajectories. However, a critical bottleneck persists: the manual curation of high-quality, domain-specific CoT demonstrations remains prohibitively expensive and difficult to scale~\cite{wang2025beyond,lightman2023letsverifystepstep,kim2023cotcollectionimprovingzeroshot}. This challenge is particularly acute in agriculture, where expert knowledge is required to validate the correctness and relevance of diagnostic reasoning chains, underscoring the pressing need for scalable, automated solutions for CoT generation.
+
+% \paragraph{Reinforcement Learning for VLM Post-Training.}
+% Reinforcement learning (RL) provides a powerful paradigm for aligning models with desired behaviors through reward feedback, offering an alternative to supervised fine-tuning that emphasizes outcome-driven optimization~\cite{christiano2017deep,ladosz2022exploration}. Building on PPO~\cite{schulman2017proximal}, Group Relative Policy Optimization (GRPO)~\cite{shao2024deepseekmath} simplifies the training architecture by replacing the learned value function with group-based advantage estimation, reducing computational cost while maintaining stable convergence. This approach has demonstrated strong reasoning capabilities in domains such as mathematics~\cite{shao2024deepseekmath} and coding~\cite{guo2025deepseek}. Similarly, in specialized fields like medical vision-language understanding, RL has been successfully adapted to address data scarcity and improve cross-modal generalization, as seen in works like ~\citet{zhi2025medgr}.
+\paragraph{Reinforcement Learning for VLM Post-Training.}
+
+RL offers a powerful paradigm for aligning models with desired behaviors through reward-based feedback, serving as a compelling alternative to supervised fine-tuning by emphasizing outcome-driven optimization~\cite{christiano2017deep,ladosz2022exploration}. Building upon Proximal Policy Optimization (PPO)~\cite{schulman2017proximal}, GRPO~\cite{shao2024deepseekmath} simplifies the training architecture by replacing the learned value function with group-based advantage estimation. This design substantially reduces computational cost while preserving stable convergence. GRPO has demonstrated strong reasoning capabilities in mathematics~\cite{shao2024deepseekmath} and coding~\cite{guo2025deepseek}. Similarly, in specialized domains such as medical vision-language understanding, RL has been successfully adapted to address data scarcity and enhance cross-modal generalization, as demonstrated in recent work such as \citet{zhi2025medgr}.
+
+The application of RL to open-ended agricultural VQA remains an underexplored challenge, with no prior work adapting GRPO to this domain. Unlike medical or mathematical tasks, agricultural diagnosis requires interpretable reasoning under conditions of linguistic diversity, data scarcity, and domain shifts. Existing RL methods typically rely on binary or multiple-choice rewards, which are ill-suited for evaluating free-form, agriculturally grounded explanations. To the best of our knowledge, this work presents the first GRPO-based framework for agricultural VQA. By introducing a domain-aware reward design and automated reasoning data synthesis, the proposed framework jointly improves accuracy, generalization, and interpretability without requiring expert annotations.
+
+
+\section{Methodology}
+\label{sec:methodology}
+
+Figure~\ref{fig:framework} presents the framework. It consists of two stages: a Generative Reasoning Enhancement Engine for constructing a high-quality reasoning dataset, followed by a GRPO Reinforcement Learning stage for training a robust policy with domain-specific rewards.
+
+
+\subsection{Generative Reasoning Enhancement}
+\label{sec:cot_augmentation}
+
+% To enable interpretable reasoning without manual annotation, we employ the three-step pipeline in Figure~\ref{fig:framework} (STAGE1): (1) Data Processing---resize images; (2) Reasoning Data Generation---a state-of-the-art VLM generates reasoning chains in structured format $\langle\text{think}\rangle R \langle/\text{think}\rangle \langle\text{answer}\rangle A \langle/\text{answer}\rangle$; (3) Quality Filtering---an LLM-based judge evaluates each reasoning chain on a 10-point rubric (threshold $\tau$=8.0), with sub-threshold outputs regenerated via feedback-guided prompting~\cite{stan2025learning} (up to 2 attempts). Only 19\% of candidates pass, ensuring high training signal density.
+To enable interpretable reasoning without manual annotation, we adopt the three-stage pipeline illustrated in Figure~\ref{fig:framework} (Stage~1).
+First, in the \textbf{data processing} stage, input images are resized to a uniform resolution.
+Second, for \textbf{reasoning data generation}, a state-of-the-art VLM produces structured reasoning chains in the format
+$\langle\text{think}\rangle R \langle/\text{think}\rangle \langle\text{answer}\rangle A \langle/\text{answer}\rangle$.
+Third, \textbf{quality filtering} is performed using an LLM-based judge, which evaluates each reasoning chain on a 10-point rubric and retains only those with a score of at least $\tau = 8.0$.
+Subthreshold outputs are regenerated via feedback-guided prompting~\cite{stan2025learning}, with up to two refinement attempts.
+This stringent filtering process admits only $19\%$ of the initial candidates, thereby ensuring a high density of training signals.
+
+\paragraph{Evaluation Rubric.}
+Table~\ref{tab:cot_quality} presents the five-criterion rubric employed to assess the quality of reasoning chains. Each criterion is scored on a scale of 0 to 2, and chains achieving a total score of at least 8 are retained for subsequent GRPO training. This rubric grounds the filtering process in domain-relevant, auditable criteria, prioritizing reasoning quality over stylistic fluency.
+A key feature of our design is the dual-model architecture, comprising a generator VLM and an independent LLM-based judge. This separation ensures cross-architectural independence and mitigates the risk of correlated biases that arise when a single model is tasked with both generating and evaluating its own outputs.
+
+% Table~\ref{tab:cot_quality} presents the five-criterion rubric used to assess reasoning chain quality. Each criterion scores 0--2; chains scoring $\geq$8 are retained for GRPO training.
+% This rubric anchors filtering to domain-grounded, auditable criteria rather than stylistic preferences. The dual-model design---a generator VLM and an independent LLM judge---ensures cross-organizational independence, mitigating correlated architectural biases that arise when a single model both generates and judges its own outputs.
+
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcp{4.8cm}}
+\hline
+\textbf{Criterion} & \textbf{Score} & \textbf{Evaluation Focus} \\
+\hline
+Accuracy    & 0--2 & Correct plant/ disease ID; no hallucination \\
+Completeness & 0--2 & Key elements: plant, symptoms, disease \\
+Detail       & 0--2 & Measurements, colors, distribution \\
+Relevance    & 0--2 & Diagnosis-relevant; no redundancy \\
+Clarity      & 0--2 & Professional terms; logical flow \\
+\hline
+\textbf{Total} & \textbf{0--10} & \textbf{Threshold: $\tau = 8.0/10.0$} \\
+\hline
+\end{tabular}
+\caption{LLM-based quality evaluation rubric for reasoning.}
+\label{tab:cot_quality}
+ \vskip -2em
+\end{table}
+
+\subsection{GRPO Reinforcement Learning}
+\label{sec:grpo}
+
+\subsubsection{Group Relative Policy Optimization}
+
+GRPO optimizes the policy $\pi_\theta$ using group-based advantage estimation~\cite{zheng2025group}, without requiring a separate reward model. For each input $(I, q)$, we sample $G$ responses:
+
+\begin{equation}
+o_i \sim \pi_\theta(\cdot \mid I, q), \quad i = 1, \ldots, G
+\label{eq:sample}
+\end{equation}
+
+\noindent where $o_i$ is a candidate response, $I$ the input image, and $q$ the question. Each response receives a scalar reward $r_i$ from our reward function (Section~\ref{sec:reward}).
+
+\noindent The group relative advantage normalizes rewards within each group of responses to stabilize learning:
+
+\begin{equation}
+\begin{aligned}
+A_i &= \frac{r_i - \mu_G}{\sigma_G + \epsilon}, \quad
+\mu_G = \frac{1}{G}\sum_{j=1}^G r_j, \\
+\sigma_G &= \sqrt{\frac{1}{G}\sum_{j=1}^G (r_j - \mu_G)^2}
+\end{aligned}
+\label{eq:advantage}
+\end{equation}
+
+\noindent where $A_i$ is the advantage for candidate $i$, $\mu_G$ and $\sigma_G$ are the group's mean and standard deviation, and $\epsilon$ is a small constant for stability. This normalization helps the model learn from relative quality differences within each group.
+
+The GRPO objective balances policy improvement with KL regularization:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{J}_G(\theta) &= \mathbb{E}_{(I,q)\sim\mathcal{D}} \Bigg[
+\frac{1}{G} \sum_{i=1}^G \min\big( \rho_i A_i, \\
+&\quad \text{clip}(\rho_i, 1-\varepsilon, 1+\varepsilon) A_i \big) \\
+&\quad - \beta \cdot D_{KL}(\pi_\theta \| \pi_{ref}) \Bigg]
+\end{aligned}
+\label{eq:grpo_objective}
+\end{equation}
+
+\noindent where \(\mathcal{J}_G\) is the GRPO objective; \(\rho_i\) is the probability ratio between current and old policies; the clipping operation and $D_{KL}$ penalty enforce conservative policy updates.
+
+\subsubsection{Reward Function Design}
+\label{sec:reward}
+
+A key challenge in agricultural VQA is designing reward functions for open-ended responses with high linguistic diversity~\cite{qian2025toolrl,eschmann2021reward,liu2024multimodal,lai2025med,pan2025medvlm}. We construct domain-specific vocabularies $\mathcal{V}_p$ and $\mathcal{V}_d$ for synonym recognition, then define a three-component reward function:
+
+\begin{equation}
+R(o) = w_f R_f(o) + w_a R_a(o) + w_r R_r(o)
+\label{eq:total_reward}
+\end{equation}
+
+\noindent where $o$ is the candidate response; $R_f$, $R_a$, and $R_r$ denote Format, Answer Exact Match, and Reasoning Quality rewards respectively; $w_f=0.5$ (17\%), $w_a=2.0$ (67\%), and $w_r=0.5$ (17\%) are the component weights; and $R(o) \in [0, 3.0]$ is the total reward.
+
+\paragraph{Domain Vocabularies.}
+We construct domain-specific vocabularies $\mathcal{V}_p$ (plant species) and $\mathcal{V}_d$ (disease types) from the benchmark's major crop and disease categories. Each entry includes canonical names, scientific nomenclature (e.g., ``tomato'' $\leftrightarrow$ ``\emph{Solanum lycopersicum}''), and colloquial variations to handle linguistic diversity in agricultural diagnosis.
+
+
+\paragraph{Format Reward.}
+This component ensures structured output with required tags and quality metrics:
+
+\begin{equation}
+R_f(o) = \begin{cases}
+\sum_{c \in C_f} w_c \cdot r_c(o) & \text{if tags exist} \\
+0 & \text{otherwise}
+\end{cases}
+\label{eq:format_reward}
+\end{equation}
+
+\noindent where $C_f = \{\text{struct.}, \text{steps}, \text{content}, \text{length}, \text{quality}\}$ evaluates basic structure with $\langle\text{think}\rangle$ (reasoning) $\langle/\text{think}\rangle$ and $\langle\text{answer}\rangle$ (response) $\langle/\text{answer}\rangle$ tags ($w=0.15$), step structure and content quality ($w=0.15, 0.10$), and appropriate think/answer lengths ($w=0.05$ each), summing to 0.5.
+
+\paragraph{Answer Keyword Reward.}
+This component evaluates diagnostic accuracy using the domain vocabularies. For diagnostic questions, we employ weighted dual matching:
+
+\begin{equation}
+\begin{aligned}
+R_a^{\text{diag}}(o) &= w_p \cdot M_p(o, a) \\
+&\quad + w_d \cdot M_d(o, a)
+\end{aligned}
+\label{eq:answer_diag}
+\end{equation}
+
+\noindent where $w_p=0.8$ and $w_d=1.2$ weight plant and disease matching; $M_p(o, a)$ and $M_d(o, a)$ measure matches via five-tier fuzzy scoring ranging from exact synonym match (1.0) to weak relevance (0.25).
+
+% \begin{table}[t]
+% \centering
+% \small
+% \setlength{\tabcolsep}{4pt}
+% \begin{tabular}{clp{4.5cm}}
+% \hline
+% \textbf{Tier} & \textbf{Score} & \textbf{Matching Criteria} \\
+% \hline
+% 1 & 1.00 & Exact match: synonym from vocabulary \\
+% 2 & 0.85 & High-quality: multi-word term, missing 1 word \\
+% 3 & 0.70 & Partial: keyword stem matching (first 6 chars) \\
+% 4 & 0.50 & Keyword: core word present (length $>$3) \\
+% 5 & 0.25 & Weak: related terms (e.g., blight$\leftrightarrow$disease) \\
+% -- & 0.00 & No match \\
+% \hline
+% \end{tabular}
+% \caption{Five-tier fuzzy matching scoring system. Unlike binary rewards in closed-set VQA, this handles the lexical diversity of open-ended agricultural responses.}
+% \label{tab:fuzzy_matching}
+% \end{table}
+
+For prevention/control questions, we match against method categories:
+
+\begin{equation}
+R_a^{\text{ctrl}}(o) = \sum_{c} w_c \cdot \mathds{1}[\text{Contains}(o, \mathcal{V}_c)]
+\label{eq:control_reward}
+\end{equation}
+
+\noindent where $c \in \{ch, cu, b, t\}$ denotes chemical ($w=0.6$), cultural ($w=0.5$), biological ($w=0.5$), and timing ($w=0.4$) methods; $\mathcal{V}_c$ are category vocabularies; $\mathds{1}[\cdot]$ indicates keyword presence.
+
+\paragraph{Reasoning Quality Reward.}
+This component evaluates Chain-of-Thought quality through three dimensions:
+
+\begin{equation}
+R_r(o) = \sum_{d \in D_r} w_d \cdot r_d(o)
+\label{eq:reasoning_reward}
+\end{equation}
+
+\noindent where $D_r = \{\text{logic.}, \text{prof.}, \text{comp.}\}$ evaluates logical coherence th-rough causal patterns (e.g., ``observe...because'') and step connections ($w=0.25$), professional terminology usage in appropriate diagnostic context ($w=0.15$), and reasoning chain completeness covering observation$\rightarrow$analysis$\rightarrow$conclusion flow ($w=0.10$).
+
+% \paragraph{Dynamic Evaluation.}
+% Our reward function dynamically selects evaluation criteria based on question type, distinguishing between diagnostic queries and control questions via separate scoring formulations in Equation~\ref{eq:answer_diag} and Equation~\ref{eq:control_reward}. To address the inherent lexical variation in open-ended agricultural responses, the function incorporates a five-tier fuzzy matching mechanism that ranges from exact match to weak relevance~\cite{reichard2025open}. The pipeline culminates in a scalar reward $r_i\in[0,3.0]$ for GRPO optimization (Equation~\ref{eq:grpo_objective}).
+\paragraph{Dynamic Evaluation.}
+
+Our reward function dynamically adapts its evaluation criteria according to question type, employing distinct scoring formulations for diagnostic queries (Equation~\ref{eq:answer_diag}) and control/prevention questions (Equation~\ref{eq:control_reward}). To accommodate the inherent lexical variation in open-ended agricultural responses, the function integrates a five-tier fuzzy matching mechanism that spans exact matches to weak semantic relevance~\cite{reichard2025open}. The complete pipeline yields a bounded scalar reward \(r_i \in [0, 3.0]\), which is subsequently used for GRPO optimization (Equation~\ref{eq:grpo_objective}).
+
+
+%%% Table 1: Main Results on CDDMBench %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table*}[t]
+\centering
+\resizebox{0.92\textwidth}{!}{
+ \renewcommand\tabcolsep{18pt}
+\begin{tabular}{c|c|cc|c}
+\hline
+\textbf{Model} & \textbf{Method} & \textbf{Crop} & \textbf{Disease} & \textbf{Knowledge} \\
+ &  & \textbf{Acc. (\%)} & \textbf{Acc. (\%)} & \textbf{QA (/100)} \\
+\hline
+\multicolumn{5}{c}{\textbf{Baseline ~\cite{lu2024application}}} \\
+\hline
+Qwen-VL-Chat (7B) & Zero-shot & 28.40 & 5.00 & 41.0 \\
+Qwen-VL-Chat-AG* (7B) & SFT (Frozen encoder) & 84.40 & 66.10 & 88.5 \\
+Qwen-VL-Chat-AG (7B)& SFT (Unfrozen encoder) & \textbf{97.40} & \textbf{91.50} & 84.0 \\
+\hline
+\multicolumn{5}{c}{\textbf{Baseline ~\cite{zhang2025cpjexplainableagriculturalpest}}} \\
+\hline
+\multirow{3}{*}{Qwen-VL-Chat (7B)} & Expl. Caption & 29.30 & 12.10 & 46.5 \\
+ & \quad+Few-shot & 53.39 & 24.49 & 50.0 \\
+ & \qquad+Judge & 54.90 & 25.39 & 51.0 \\
+\cline{1-5}
+\multirow{4}{*}{GPT-5-Nano} & Zero-shot & 47.00 & 11.00 & 65.0 \\
+ & Expl. Caption & 60.30 & 31.60 & 84.0 \\
+ & \quad+Few-shot & 58.90 & 29.80 & 76.0 \\
+ & \qquad+Judge & 63.38 & 33.70 & \textbf{84.5} \\
+\hline
+\multicolumn{5}{c}{\textbf{Our Methods}} \\
+\hline
+\multirow{5}{*}{Qwen2.5-VL-3B-Instruct} & Zero-shot & 28.41 & 4.84 & 27.5 \\
+ & Few-shot & 36.56 & 6.96 & 45.5 \\
+ & SFT & 90.97 & 58.84 & 63.0 \\
+ & GRPO & 92.33 & 69.43 & 72.49 \\
+ & \textbf{Agri-R1 (Reasoning-Enhanced)} & \textbf{92.58} & \textbf{75.30} & \textbf{84.0} \\
+\hline
+\textit{GRPO Gain (vs SFT)} & & \textcolor{blue}{+1.36} & \textcolor{blue}{+10.59} & \textcolor{blue}{+9.49} \\
+\textit{Reasoning Contribution} & & \textcolor{blue}{+0.25} & \textcolor{blue}{+5.87} & \textcolor{blue}{+11.51} \\
+\textit{Total Gain vs SFT} & & \textcolor{blue}{+1.61} & \textcolor{blue}{+16.46} & \textcolor{blue}{+21.0} \\
+\textit{Relative Gain} & & \textcolor{blue}{+1.8\%} & \textcolor{blue}{+27.9\%} & \textcolor{blue}{+33.3\%} \\
+\hline
+\end{tabular}
+}
+\caption{
+Performance comparison on CDDMBench. Baselines include zero-shot and SFT variants of Qwen-VL-Chat (7B)~\cite{lu2024application} as well as prompt-based methods using Qwen-VL-Chat (7B) and GPT-5-Nano~\cite{zhang2025cpjexplainableagriculturalpest}. Our 3B models are trained with GRPO (answer-only rewards) and Agri-R1 (Reasoning-Enhanced with explicit diagnostic reasoning). GRPO yields substantial gains, while explicit reasoning delivers further improvements, particularly on knowledge-intensive tasks.
+%Performance comparison on CDDMBench. Baselines include: (a) zero-shot/SFT with Qwen-VL-Chat 7B models~\cite{lu2024application}; (b) prompt-based methods using Qwen-VL-Chat 7B and GPT-5-Nano models~\cite{zhang2025cpjexplainableagriculturalpest}. Our 3B models are trained with GRPO (answer-only rewards) and Agri-R1 (Reasoning-Enhanced) (explicit diagnostic reasoning). \textbf{Crop Acc.} and \textbf{Disease Acc.} use keyword matching accuracy (\%); \textbf{Knowledge QA} is GPT-4-scored on a 0--100 scale. Results show GRPO provides substantial gains, while explicit reasoning yields further improvements, especially on knowledge-intensive tasks.
+}
+\label{tab:cddmbench_comparison}
+ \vskip -1em
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Datasets and Evaluation}
+\label{sec:datasets}
+% We build training datasets based on CDDMBench~\cite{liu2024multimodal}, a large-scale agricultural VQA benchmark comprising \textasciitilde1.05M training samples across 16 crop species and 60 disease categories. The SFT training set uses the full CDDMBench dataset in standard VQA format. The GRPO training set applies stratified sampling to obtain 200,005 samples (19\%), preserving class distribution across the benchmark's crop and disease categories.
+We construct our training datasets from CDDMBench~\cite{liu2024multimodal}, a large-scale agricultural VQA benchmark containing approximately 1.05 million samples across 16 crop species and 60 disease categories. The SFT training set utilizes the full CDDMBench dataset in its standard VQA format. For GRPO training, we apply stratified sampling to obtain 200K samples (19\% of the original corpus), while strictly preserving the original class distribution across crops and diseases. This ratio aligns with reward-guided data efficiency findings~\cite{zhi2025medgr}. For reasoning synthesis, we explore two Generative Reasoning Enhancement Engines (DeepSeek-VL2~\cite{wu2024deepseek} and Qwen2.5-VL-72B~\cite{bai2025qwen2}) paired with four judge configurations (No Judge, self-judge, Qwen2.5-VL-72B, and GPT-4), yielding eight pipeline combinations whose impact on GRPO performance is analyzed in Section~\ref{sec:ablation_pipeline}.
+
+%\paragraph{Evaluation Protocol.}
+\textbf{Evaluation Protocol: }
+Following CDDMBench protocol, we evaluate on: (1) In-distribution test set (3,963 samples) using keyword matching accuracy for crop/disease recognition; (2) Disease Knowledge QA (20 samples) scored by GPT-4 (0-10 scale) on professionalism, completeness, and practicality, following~\cite{liu2024multimodal}; (3) We also evaluate on AgMMU benchmark (770 samples)~\cite{gauba2025agmmu} for cross-scenario generalization using harmonic mean across five subtasks. To complement automatic metrics, Section~\ref{sec:human_eval} further provides expert human evaluation of reasoning quality on a 200-sample subset.
+
+
+\subsection{Training Configuration}
+
+We adopt Qwen2.5-VL-3B-Instruct~\cite{bai2025qwen2} as our base VLM. Training is conducted on 4 NVIDIA A800 80GB GPUs with DeepSpeed ZeRO-3 optimization. The hyperparameters include a batch size of 160, AdamW optimizer with learning rate $8\times10^{-7}$ and cosine schedule warmup, gradient clipping at 0.3, and BF16 mixed precision. The model is trained for 3 epochs, with the optimal checkpoint selected at step 1,800. For GRPO training, we sample $K=3$ candidate responses per query with temperature $T=0.7$; this group size balances response diversity against computational cost, providing sufficient within-group variance for stable advantage estimation without the memory overhead of larger groups. Throughout training, the KL divergence stabilized between 0.036 and 0.040, confirming that the policy updates remained conservative and did not result in collapse. The entire training process took 98 hours.
+%The KL divergence stabilizes between 0.036 and 0.040 throughout training, confirming that the policy updates remain conservative and do not collapse. The total training time is 98 hours.
+
+\subsection{Baselines}
+
+We evaluate our method against the following baselines: Zero-shot uses the pretrained Qwen2.5-VL-3B-Instruct model with only task prompts. Few-shot augments zero-shot with 5 in-context examples. SFT applies supervised fine-tuning on the complete CDDMBench dataset (1.05M samples). GRPO optimizes with answer correctness rewards only, without explicit reasoning. Agri-R1 (Reasoning-Enhanced) (Ours) is our complete two-stage framework, integrating automated reasoning data synthesis and reasoning-aware reward functions.
+Furthermore, we compare our results to published baselines: CDDMBench~\cite{lu2024application} uses Supervised Fine-Tuning on crop disease datasets.
+CPJ~\cite{zhang2025cpjexplainableagriculturalpest} is a training-free approach utilizing explainable captions and LLM-as-Judge evaluation.
+
+
+\subsection{Main Results}
+\label{sec:results}
+\paragraph{\textbf{Overall Performance on CDDMBench.}}
+
+Table~\ref{tab:cddmbench_comparison} presents comprehensive results comparing our approach with published baselines. Throughout this section, \textit{Agri-R1 (Reasoning-Enhanced)} denotes the complete \textbf{Agri-R1} framework and is used interchangeably with ``Agri-R1'' for brevity. Our Agri-R1 (Reasoning-Enhanced) uses the DeepSeek-VL2 + GPT-4 pipeline (see Section~\ref{sec:ablation_pipeline}).
+
+We highlight three key observations:
+
+(1) \textbf{Crop Recognition}: Agri-R1 achieves 92.58\% accuracy, yielding a +1.61\,pp absolute gain over SFT (90.97\%), with GRPO contributing +1.36\,pp and explicit reasoning adding +0.25\,pp.
+
+(2) \textbf{Disease Recognition}: Agri-R1 reaches 75.30\% accuracy, delivering a +27.9\% relative improvement over SFT. GRPO provides the dominant gain (+10.59\,pp), while explicit reasoning further enhances fine-grained symptom differentiation (+5.87\,pp).
+
+(3) \textbf{Knowledge QA}: Agri-R1 attains 84.0 points, matching state-of-the-art proprietary models with a +33.3\% relative gain over SFT. Notably, explicit reasoning contributes more (+11.51 points) than GRPO alone (+9.49 points), underscoring its critical role in multi-step knowledge integration.
+
+Across all three tasks, the benefit of explicit reasoning increases in the order Crop $<$ Disease $<$ KQA, reflecting each task's growing reliance on causal, multi-step inference rather than pure visual matching.
+% Overall Performance on CDDMBench.
+% Table~\ref{tab:cddmbench_comparison} presents comprehensive results comparing our approach with published baselines. Throughout this section, \textit{Agri-R1 (Reasoning-Enhanced)} denotes the complete \textbf{Agri-R1} framework and is used interchangeably with ``Agri-R1'' for brevity. Our Agri-R1 (Reasoning-Enhanced) uses the DeepSeek-VL2 + GPT-4 pipeline (see Section~\ref{sec:ablation_pipeline}).
+% We present three key observations from our evaluation:
+% (1) Crop Recognition: Agri-R1 (Reasoning-Enhanced) (92.58\%) achieves +1.61\,pp absolute gain over SFT (90.97\%), with GRPO contributing +1.36\,pp and explicit reasoning adding +0.25\,pp.
+% (2) Disease Recognition: Agri-R1 (Reasoning-Enhanced) (75.30\%) achieves +27.9\% relative gain over SFT, with GRPO contributing +10.59\,pp and reasoning adding +5.87\,pp. RL-based exploration (GRPO) provides the dominant improvement, while explicit reasoning enhances fine-grained symptom differentiation.
+% (3) Knowledge QA: Agri-R1 (Reasoning-Enhanced) (84.0) matches state-of-the-art Gpt-5-Nano approaches with +33.3\% relative gain over SFT. Critically, reasoning's contribution (+11.51 points) exceeds GRPO's contribution (+9.49 points) on this task, confirming that explicit reasoning chains are essential for multi-step knowledge integration---not merely for transparency, but for fundamental capability enhancement.
+% Across all three tasks, the dependence on reasoning quality follows the ordering Crop $<$ Disease $<$ KQA, directly reflecting each task's reliance on multi-step inference: crop recognition is primarily a visual matching task, while disease diagnosis and knowledge QA increasingly demand causal reasoning chains to achieve accurate predictions.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.96\columnwidth]{figures/figure3_agmmu_radar_improved.pdf}
+\caption{AgMMU cross-domain performance. \mbox{Agri-R1 (Reasoning-Enhanced)} (red) outperforms SFT (blue) and GRPO (green) on all five tasks.
+%, with the largest absolute gains on Disease/Issue ID (+41\,pp) and Species Recognition (+36\,pp) over SFT.
+}
+\Description{A radar chart comparing Agri-R1 (Reasoning-Enhanced) (red) and SFT (blue) across five AgMMU subtasks. The red radar polygon is consistently larger than the blue polygon, particularly on visual tasks.}
+\label{fig:agmmu_radar}
+ \vskip -1em
+\end{figure}
+
+\paragraph{\textbf{Generalization on AgMMU-MCQs.}}
+We evaluate cross-domain generalization on AgMMU-MCQs, a challenging subset of the AgMMU benchmark spanning five agricultural reasoning tasks. Using only 3B parameters, Agri-R1 (Reasoning-Enhanced) achieves 66.10\% accuracy, matching LLaVA-1.5-13B (66.73\%) while outperforming Qwen-VL-7B (62.34\%) and Claude 3 Haiku (62.00\%). Figure~\ref{fig:agmmu_radar} visualizes performance across all tasks. SFT experiences a drastic 50.97-point drop from 90.97\% (CDDMBench) to 40.00\% (AgMMU-MCQs). In contrast, GRPO (without explicit reasoning) maintains 59.75\% despite using identical 19\% training data, and Agri-R1 further boosts generalization by +26.10 points. The largest gains appear on Management Instructions and Symptom/Visual Description, where structured reasoning chains supply procedural scaffolding and enable effective integration of visual cues with domain knowledge. These results highlight RL's superior capacity to learn transferable, domain-invariant representations compared with standard supervised fine-tuning.
+
+% \paragraph{Generalization Performance on AgMMU-MCQs.}
+
+% We evaluate generalization capability on AgMMU-MCQs, a subset of the AgMMU benchmark testing agricultural reasoning across five tasks. Agri-R1 (Reasoning-Enhanced) (66.10\%) matches LLaVA-1.5-13B (66.73\%) and surpasses Qwen-VL-7B (62.34\%) and Claude 3 Haiku (62.00\%) with only 3B parameters. Figure~\ref{fig:agmmu_radar} visualizes performance across five tasks. SFT's performance drops from CDDMBench (90.97\%) to AgMMU-MCQs (40.00\%)---a 50.97-point collapse. In contrast, GRPO (no explicit reasoning) maintains 59.75\% despite identical 19\% training data, demonstrating +19.75-point better generalization. Agri-R1 (Reasoning-Enhanced) extends this to +26.10 points, confirming that GRPO's exploration learns domain-invariant features. The gain is most pronounced on Management Instructions, where explicit reasoning chains provide the procedural scaffolding that pure answer-matching cannot supply, and on Symptom/Visual Description, where integrating visual cues with domain knowledge requires structured inference. SFT's degradation on visual tasks contrasts with GRPO's robust performance, highlighting RL's transferable representations.
+
+\section{Analysis}
+\subsection{Generator-Judge Configuration Ablation}
+\label{sec:ablation_pipeline}
+
+We compare two generators, DeepSeek-VL2 and Qwen2.5-VL-72B, under four judge settings. The results on crop recognition, disease recognition, and knowledge QA are reported in Table~\ref{tab:judge_ablation}. Two key findings emerge:
+First, external judge quality is paramount. GPT-4 judging consistently outperforms self-judging and weaker alternatives, revealing a systematic failure mode where generator-judge correlation allows flawed reasoning to survive filtration. This confirms that judge capability, not merely diversity, determines filtering rigor.
+Second, generator choice involves task-specific trade-offs. While Qwen2.5-VL-72B excels at fine-grained visual recognition, DeepSeek-VL2 produces more compact, regular reasoning chains that transfer effectively to smaller student models.
+Consequently, we adopt DeepSeek-VL2 with GPT-4 judging for main experiments, validating that strict reasoning filtration via high-quality external judges substantially improves downstream inference.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llccc}
+\hline
+\textbf{Generator} & \textbf{Judge} & \textbf{Crop} & \textbf{Disease} & \textbf{KQA} \\
+ &  & \textbf{Acc. (\%)} & \textbf{Acc. (\%)} & \textbf{(/100)} \\
+\hline
+\multirow{4}{*}{DeepSeek-VL2}
+ & No Judge & 92.4 & 70.54 & 75.5 \\
+ & DeepSeek Judge & 92.45 & 72.5 & 77.0 \\
+ & Qwen72B Judge & 92.5 & 73.0 & 81.0 \\
+ & GPT-4 Judge & \textbf{92.58} & \textbf{75.3} & \textbf{84.0} \\
+\hline
+\multirow{4}{*}{Qwen2.5-VL-72B}
+ & No Judge & 92.6 & 71.45 & 73.2 \\
+ & DeepSeek Judge & 92.9 & 72.6 & 75.0 \\
+ & Qwen72B Judge & 93.1 & 72.5 & 74.5 \\
+ & GPT-4 Judge & \textbf{94.2} & 74.2 & 81.0 \\
+\hline
+\end{tabular}
+\caption{Generator--Judge ablation across all three metrics. The DeepSeek-VL2 + GPT-4 pipeline generates the highest-quality reasoning text, yielding the strongest overall reasoning performance. This confirms that optimized reasoning synthesis substantially improves downstream inference capability.
+%Generator--Judge ablation across all three metrics. DeepSeek-VL2 + GPT-4 judge gives the best overall balance and is used in the main experiments. Qwen2.5-VL-72B + GPT-4 judge achieves the best crop accuracy (94.20\%) and reaches KQA 81.0.
+}
+\label{tab:judge_ablation}
+\vskip -1.5em
+\end{table}
+
+% We conduct a generator-judge ablation to identify the optimal pipeline for high-quality reasoning synthesis (Table~\ref{tab:judge_ablation}).
+
+% Table~\ref{tab:judge_ablation} makes two points clear. The first is that the generator affects different parts of the task in different ways. With GPT-4 as judge, Qwen2.5-VL-72B gives the strongest crop recognition result, improving accuracy from 92.58\% to 94.20\%. This is consistent with its advantage on fine-grained visual detail. DeepSeek-VL2, however, remains better on disease recognition and KQA, reaching 75.30\% and 84.0, compared with 74.20\% and 81.0 for Qwen2.5-VL-72B. In practice, the difference appears less related to raw visual capacity than to the form of the generated reasoning. DeepSeek-VL2 tends to produce shorter and more regular chains, which are easier for the 3B student to follow during training. By contrast, longer and more elaborate traces do not always transfer cleanly to a smaller student model.
+
+% The second point concerns the judge. Across both generators, GPT-4 gives the strongest results. The gap is especially visible on KQA. For DeepSeek-VL2, replacing GPT-4 with a same-model judge reduces KQA from 84.0 to 77.0. This is a useful sign that self-judging is not simply a weaker version of external judging, but a qualitatively different one: the generator and judge tend to fail on similar cases, so incorrect or incomplete reasoning is more likely to survive filtering. Using a different model as judge alleviates part of this problem. With DeepSeek-VL2 as generator, switching from the DeepSeek judge to Qwen72B raises KQA from 77.0 to 81.0. The improvement is not enough to match GPT-4, but it does show that judge diversity matters in practice.
+
+% These results also help explain the configuration used in the rest of the paper. DeepSeek-VL2 + GPT-4 judge gives the best overall trade-off across the three metrics, while Qwen2.5-VL-72B + GPT-4 judge is the strongest option when crop recognition is the main concern. More broadly, the ablation suggests that reasoning-enhanced training depends not only on the quality of the generated traces, but also on how strictly those traces are filtered before GRPO.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcccr}
+\hline
+\textbf{Method} & \textbf{Diag.} & \textbf{Reasoning} & \textbf{Utility} & \textbf{H--G4 $r$} \\
+ & \textbf{Acc.} & \textbf{Validity} & & \\
+\hline
+SFT              & 6.5 & 3.2 & 6.1 & 0.82 \\
+GRPO             & 7.6 & 5.6 & 7.3 & 0.86 \\
+\textbf{Agri-R1} & \textbf{8.1} & \textbf{7.8} & \textbf{8.0} & \textbf{0.89} \\
+\textbf{(Reasoning-Enhanced)} & & & & \\
+\hline
+\end{tabular}
+\caption{Expert evaluation (N=200, scores 0--10). H--G4 $r$ denotes the Pearson correlation between human and GPT-4.
+%The largest gain appears in Reasoning Validity, supporting the role of explicit reasoning supervision.
+}
+\label{tab:expert_eval}
+\vskip -1em
+\end{table}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table*}[t]
+\centering
+\resizebox{.94\textwidth}{!}{
+\renewcommand\tabcolsep{19pt}
+\begin{tabular}{lrccr}
+\toprule
+\textbf{Crop} & \textbf{Freq.} & \textbf{SFT} & \textbf{Agri-R1 (Reasoning-Enhanced)} & \textbf{+FA Weight\textsuperscript{$\dagger$}} \\
+\midrule
+\multicolumn{5}{l}{\textit{High-freq. (>5\%) -- Stable ($\sigma$=3.2\,pp)}} \\
+Tomato & 37.19\% & 90.95\% & \textbf{96.05\%} (+5.10) & 95.68\% ($-$0.37) \\
+Apple & 29.48\% & 90.94\% & \textbf{97.69\%} (+6.75) & 97.18\% ($-$0.51) \\
+Corn & 8.35\% & 91.12\% & \textbf{96.55\%} (+5.43) & 95.86\% ($-$0.69) \\
+\midrule
+\multicolumn{5}{l}{\textit{Mid-freq. (2-5\%) -- Moderate ($\sigma$=8.7\,pp)}} \\
+Potato & 4.21\% & 90.88\% & \textbf{94.23\%} (+3.35) & 93.91\% ($-$0.32) \\
+Grape & 3.31\% & 90.84\% & \textbf{100.00\%} (+9.16) & 100.00\% (=) \\
+Soybean & 3.15\% & 91.05\% & \textbf{93.87\%} (+2.82) & \textbf{95.08\%} (+1.21) \\
+\midrule
+\multicolumn{5}{l}{\textit{Low-freq. (<2\%) -- High Variance ($\sigma$=22.1\,pp)}} \\
+Bell Pepper & 1.73\% & 91.14\% & 83.54\% (\textcolor{red}{-7.60}) & \textbf{89.75\%} (\textcolor{blue}{+6.21}) \\
+Raspberry   & 1.61\% & 100.00\% & 80.00\% (\textcolor{red}{-20.00}) & \textbf{89.47\%} (\textcolor{blue}{+9.47}) \\
+Cherry      & 1.23\% & 91.30\% & 31.88\% (\textcolor{red}{-59.42}) & \textbf{52.10\%} (\textcolor{blue}{+20.22}) \\
+\bottomrule
+\end{tabular}}
+\caption{Crop recognition by training frequency. Standard GRPO remains stable on high-frequency crops ($\sigma$=3.2\,pp) but becomes highly variable on low-frequency crops ($\sigma$=22.1\,pp), where all classes below 2\% regress. FA weighting restores all low-frequency crops to at or above their SFT baselines. \textsuperscript{$\dagger$}For mid-frequency crops ($f(c)\geq2.5\%$), FA weighting causes only minor changes ($\leq$1.2\,pp), indicating that its main effect is concentrated on the long tail.}
+\label{tab:crop_analysis}
+\vskip -0.5em
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Expert Evaluation of Reasoning Quality}
+\label{sec:human_eval}
+
+Protocol.
+To complement automatic metrics, which focus on correctness but do not fully reflect real-world reliability or practical utility, we conducted a human evaluation on 200 randomly sampled responses from the CDDMBench test set (150 diagnostic questions and 50 knowledge QA questions). Two agricultural experts, blind to model identity, independently scored the outputs using the same 0--10 rubric as in Table~\ref{tab:cot_quality} across three dimensions: Diagnostic Accuracy, Reasoning Validity, and Practical Utility. Inter-annotator agreement was strong ($\kappa=0.84$), and averaged scores were used in the final analysis.
+%Automatic metrics are useful for measuring correctness, but they do not fully capture whether a response would be considered reliable or useful by domain users. To examine this aspect, we randomly sampled 200 responses from the CDDMBench test set, including 150 diagnostic questions and 50 knowledge QA questions. Two annotators with agricultural research backgrounds evaluated the outputs independently without access to model identity. We used the same 0--10 rubric as in Table~\ref{tab:cot_quality}, covering three dimensions: Diagnostic Accuracy, Reasoning Validity, and Practical Utility. Inter-annotator agreement was strong ($\kappa = 0.84$; Cohen's kappa), and the averaged score was used in the final analysis.
+
+\paragraph{Results.}
+Table~\ref{tab:expert_eval} summarizes the human evaluation results. Agri-R1 (Reasoning-Enhanced) achieves the highest scores across all three dimensions and the strongest alignment with GPT-4 ratings ($r=0.89$). The largest improvement appears in Reasoning Validity: SFT scores only 3.2/10 (lacking explicit structure), standard GRPO reaches 5.6/10 (still largely implicit), while Agri-R1 attains 7.8/10 thanks to explicit \texttt{<think>} supervision. This substantial gain aligns directly with the core design of our framework. Notably, human ratings correlate strongly with GPT-4 scores across all methods ($r \ge 0.82$), confirming that our LLM-based scoring reliably approximates expert judgment and supports its use in both data filtering and reward design.
+
+
+
+%The results are summarized in Table~\ref{tab:expert_eval}. Agri-R1 (Reasoning-Enhanced) receives the highest score on all three dimensions and also shows the closest agreement with GPT-4 scoring ($r=0.89$). The largest difference among methods appears in Reasoning Validity. SFT receives 3.2/10, which is not surprising, since it produces answers without explicit reasoning structure. Standard GRPO raises this score to 5.6/10. The responses are often more informative, but the reasoning is still largely implicit and uneven in organization. Agri-R1 reaches 7.8/10 after introducing explicit \texttt{<think>} supervision. Among the three dimensions, this is the largest margin in the table, and it aligns with the main design choice of our framework.
+
+%Another point worth noting is the consistency between human ratings and GPT-4 scores. The correlation stays above 0.82 for all three methods. While this does not mean that the two are interchangeable, it does suggest that the LLM-based scoring used for Knowledge QA in Section~\ref{sec:datasets} tracks human preference reasonably well in this setting. This is important for our pipeline, since the same scoring mechanism is used both in data filtering and in reward design~\cite{ding2025building}.
+
+
+\subsection{Frequency-Induced Bias in Crop Recognition}
+\label{sec:bias_analysis}
+
+The crop-level breakdown in Table~\ref{tab:crop_analysis} shows a strong dependence on training frequency. High-frequency crops ($>$5\%) improve in a fairly uniform way, with a standard deviation of 3.2\,pp. The low-frequency group ($<$2\%), in contrast, is much less stable, with a standard deviation of 22.1\,pp. All three classes in this range decline under standard GRPO, and the drop for Cherry is particularly severe, from 91.30\% to 31.88\%.
+
+This pattern is consistent with what one would expect from gradient competition. Frequent classes appear more often, contribute more reward signal, and therefore exert more influence on the update direction. Apple, for example, accounts for 29.48\% of the training data, whereas Cherry accounts for only 1.23\%. Over the course of training, such an imbalance can gradually bias the model toward frequent categories at the expense of rare ones. The same issue reappears in disease recognition and is discussed again in Section~\ref{sec:disease_analysis}. In both cases, the underlying problem is that the group-relative advantage in Equation~\ref{eq:advantage} is not frequency-aware, so batch statistics are dominated by classes that are already well represented.
+
+To test whether this is the main source of the problem, we introduce a frequency-aware (FA) variant that rescales Equation~\ref{eq:total_reward} by $w_{\mathrm{freq}}(c)=1+\alpha\cdot\max(0,\,\theta-f(c))$, where $\alpha=50$ and $\theta=2.5\%$.
+ Under this setting, classes with $f(c)\geq2.5\%$ keep weight 1.0, while the rarest classes receive up to 3.35$\times$ reward amplification. The effect is concentrated almost entirely on the long tail. Cherry rises from 31.88\% to 52.10\%, and all three low-frequency crops return to or exceed their SFT baselines. At the dataset level, overall crop accuracy increases from 92.28\% to 93.54\%, which is a 1.37\% relative gain over Agri-R1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/figure2_disease_improvement.pdf}
+\caption{Disease recognition improvement by category (\mbox{Agri-R1} vs.\ SFT).
+Green points ($>$15\% gain) cluster in the 3--8\% frequency range, while gray points denote low-frequency diseases ($<$2\%) that regress under standard training. Red annotations mark the recovery obtained with FA weighting (\ref{sec:bias_analysis}).}
+\Description{A scatter plot showing disease recognition improvements for each disease category. Points are colored green for improvements greater than 15\% and red for declines greater than 15\%. Point size indicates training data proportion.}
+\label{fig:disease_improvement}
+\vskip -1.5em
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Analysis of Fine-Grained Disease Recognition}
+\label{sec:disease_analysis}
+
+% Figure~\ref{fig:disease_improvement} shows the disease-level gains relative to SFT. The strongest improvements are concentrated in the 3--8\% frequency range. In this region, the reward signal appears stable enough for GRPO to produce consistent gains, while the SFT baseline still leaves room for improvement. This is where reinforcement learning seems to help the most. The pattern is less favorable outside this band. Below 3\%, the updates become much noisier, and the gains are no longer consistent from one disease to another. Above 8\%, the room for improvement is smaller because SFT already performs relatively well. The main concern is again the long tail. Six diseases with frequencies below 2\% each lose more than 20 percentage points under standard training. The KL term in Equation~\ref{eq:grpo_objective} helps keep the model from drifting too far from the SFT policy, but it does not solve the imbalance inside each batch when common and rare classes contribute very different amounts of signal.
+Figure~\ref{fig:disease_improvement} shows disease-level gains relative to SFT. Improvements concentrate in the 3--8\% frequency range, where the reward signal is stable enough for GRPO to yield consistent gains while SFT leaves room for improvement. Outside this band, performance declines: below 3\%, updates are noisy and gains inconsistent; above 8\%, SFT already performs well. A key concern is the long tail: six diseases with frequencies below 2\% each lose over 20 percentage points under standard training. The KL term in Equation~\ref{eq:grpo_objective} mitigates drift from SFT but does not resolve the imbalance when common and rare classes contribute uneven signal within each batch.
+
+The FA weighting introduced in Section~\ref{sec:bias_analysis} largely addresses this issue. As shown by the annotations in Figure~\ref{fig:disease_improvement}, all six regressed diseases recover to 1--3\,pp above their SFT baselines. This lifts overall disease accuracy from 75.3\% to 78.3\%, which corresponds to a 4.0\% relative improvement over Agri-R1. Most of that gain comes from categories in the sub-2\% tail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/figure4_complexity_comparison.pdf}
+\caption{Ablation on Disease Knowledge QA (20 samples). Standard GRPO without explicit reasoning (purple) yields consistent but limited gains (+4\% to +28\%), whereas Agri-R1 (Reasoning-Enhanced) (red) achieves larger improvements on difficult questions, reaching +61\%.}
+\Description{A bar chart comparing GRPO and Agri-R1 (Reasoning-Enhanced) performance on Disease Knowledge QA questions grouped by complexity level. The reasoning-enhanced approach shows progressively larger gains for more complex questions.}
+\label{fig:complexity}
+\vskip -1em
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Analysis of Reasoning Capability}
+
+\textbf{Scaling of reasoning benefits with task complexity.}The benefit of explicit reasoning varies with task complexity. On simple visual recognition tasks, gains remain modest, as standard GRPO already captures most of the available improvement. The advantage becomes substantially larger on knowledge-intensive questions that require multi-step integration of agricultural knowledge. Figure~\ref{fig:complexity} illustrates this trend: on the most difficult Disease Knowledge QA subset, standard GRPO yields up to +28\% gain, whereas Agri-R1 (Reasoning-Enhanced) reaches +61\%---a 2.2$\times$ larger improvement. These results show that GRPO effectively refines answer distributions, yet explicit reasoning chains are essential for organizing intermediate steps when multi-step inference is required.
+% The benefit of explicit reasoning is not uniform across tasks. On relatively simple visual recognition problems, the gain is limited, and standard GRPO already captures much of the available improvement. The difference becomes larger on knowledge-intensive questions that require several pieces of agricultural knowledge to be connected. Figure~\ref{fig:complexity} shows this clearly. On the most difficult Disease Knowledge QA subset, standard GRPO reaches gains of up to +28\%, whereas Agri-R1 (Reasoning-Enhanced) reaches +61\%. In other words, the improvement is about 2.2$\times$ larger once explicit reasoning is introduced.
+
+% This gap is informative. GRPO helps the model move toward better answer distributions, but that alone is not always enough for questions that involve multi-step inference. In those cases, the model also needs an internal structure for organizing intermediate steps. The effect is modest when the task is simple, but it becomes increasingly important as question complexity grows.
+
+
+\paragraph{\textbf{Multi-Model KQA Progression.}}
+The KQA trajectory in Table~\ref{tab:cddmbench_comparison} follows the same trend. Zero-shot performance starts at 27.5. SFT raises it to 63.0, and GRPO without explicit reasoning further improves it to 72.49. The largest single increase then comes from GRPO to Agri-R1 (Reasoning-Enhanced), which adds another 11.51 points. This gain is larger than the improvement from zero-shot to few-shot prompting, and also larger than the gap between SFT and standard GRPO. The final score reaches 84.0, roughly three times the zero-shot baseline. Taken together, these results suggest that explicit reasoning is most valuable on the part of the benchmark where visual recognition is no longer the main difficulty and multi-step knowledge integration becomes the bottleneck.
+
+\paragraph{\textbf{Case Study: Qualitative Analysis of Explicit Reasoning Output.}}
+Figure~\ref{fig:cot_example} gives a concrete example with a Rice Blast control question. The SFT model (6/10) produces general advice, but the response is broad and not very specific to the disease. GRPO (7/10) improves the answer and identifies the right intervention direction, yet the output still lacks details that would make it directly actionable. Agri-R1 (8/10) gives a more structured response and includes concrete information such as variety names (Zao 58, Xiangzaoxian 3), treatment conditions (56$^\circ$C for 5 min, 1\% KMnO$_4$), and fungicide dilution ratios (800--1200$\times$). The example reflects the broader pattern in the quantitative results: RL improves correctness, while explicit reasoning more noticeably improves completeness and usefulness.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!t]
+\centering
+\includegraphics[width=1.0\columnwidth]{figures/figure5_cot-image.pdf}
+\caption{Comparison of diagnostic reasoning quality on Rice Blast control. SFT (6/10) provides broad but unfocused advice. GRPO (7/10) identifies correct strategies but lacks operational specificity. Agri-R1 (8/10) produces a structured response with actionable details, including crop varieties, treatment protocols, and dilution ratios.}
+\Description{A three-stage comparison showing the progression from Prior SFT (unfocused advice) to Prior GRPO (correct but superficial) to Agri-R1 (structured reasoning with specific parameters). Each stage shows the model's response to a Rice Blast control question with corresponding quality scores.}
+\label{fig:cot_example}
+\vskip -1.5em
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Conclusion}
+We present \textbf{Agri-R1}, the first GRPO-based framework for open-ended agricultural VQA, combining automated reasoning synthesis with a domain-aware fuzzy-matching reward to achieve data-efficient, interpretable, and generalizable disease diagnosis.
+Our 3B model surpasses larger 7B--13B SFT baselines, achieving +27.9\% relative gain in disease recognition, +33.3\% in knowledge QA, and +26.10-point cross-domain improvement on AgMMU. Frequency analysis further reveals gradient competition as the root cause of rare-category collapse, with FA reward weighting providing targeted recovery for sub-2\% categories. These results suggest that automated CoT synthesis paired with domain-aware reward design may provide a broadly applicable template for RL-based VLM adaptation in specialized domains where expert annotation is scarce.
+
+\section*{Limitations}
+Our analysis reveals two key limitations that motivate future work. First, frequency-induced gradient competition leads to representation degradation for rare crops and diseases. This issue is partially addressed by the FA weighting variant discussed in Section~\ref{sec:bias_analysis}, though a more fundamental solution remains an open direction. Second, the current framework lacks explicit temporal modeling, which limits its applicability to scenarios involving dynamic disease progression over time. To address the latter, we plan to explore recurrent vision-language architectures that can effectively capture temporal dependencies and evolving disease patterns.
+
+
+
+
+
+
+
+
+
+
+
+
+% \section{Introduction}
+% ACM's consolidated article template, introduced in 2017, provides a
+% consistent \LaTeX\ style for use across ACM publications, and
+% incorporates accessibility and metadata-extraction functionality
+% necessary for future Digital Library endeavors. Numerous ACM and
+% SIG-specific \LaTeX\ templates have been examined, and their unique
+% features incorporated into this single new template.
+
+% If you are new to publishing with ACM, this document is a valuable
+% guide to the process of preparing your work for publication. If you
+% have published with ACM before, this document provides insight and
+% instruction into more recent changes to the article template.
+
+% The ``\verb|acmart|'' document class can be used to prepare articles
+% for any ACM publication --- conference or journal, and for any stage
+% of publication, from review to final ``camera-ready'' copy, to the
+% author's own version, with {\itshape very} few changes to the source.
+
+% \section{Template Overview}
+% As noted in the introduction, the ``\verb|acmart|'' document class can
+% be used to prepare many different kinds of documentation --- a
+% double-anonymous initial submission of a full-length technical paper, a
+% two-page SIGGRAPH Emerging Technologies abstract, a ``camera-ready''
+% journal article, a SIGCHI Extended Abstract, and more --- all by
+% selecting the appropriate {\itshape template style} and {\itshape
+%   template parameters}.
+
+% This document will explain the major features of the document
+% class. For further information, the {\itshape \LaTeX\ User's Guide} is
+% available from
+% \url{https://www.acm.org/publications/proceedings-template}.
+
+% \subsection{Template Styles}
+
+% The primary parameter given to the ``\verb|acmart|'' document class is
+% the {\itshape template style} which corresponds to the kind of publication
+% or SIG publishing the work. This parameter is enclosed in square
+% brackets and is a part of the {\verb|documentclass|} command:
+% \begin{verbatim}
+%   \documentclass[STYLE]{acmart}
+% \end{verbatim}
+
+% Journals use one of three template styles. All but three ACM journals
+% use the {\verb|acmsmall|} template style:
+% \begin{itemize}
+% \item {\texttt{acmsmall}}: The default journal template style.
+% \item {\texttt{acmlarge}}: Used by JOCCH and TAP.
+% \item {\texttt{acmtog}}: Used by TOG.
+% \end{itemize}
+
+% The majority of conference proceedings documentation will use the {\verb|acmconf|} template style.
+% \begin{itemize}
+% \item {\texttt{sigconf}}: The default proceedings template style.
+% \item{\texttt{sigchi}}: Used for SIGCHI conference articles.
+% \item{\texttt{sigplan}}: Used for SIGPLAN conference articles.
+% \end{itemize}
+
+% \subsection{Template Parameters}
+
+% In addition to specifying the {\itshape template style} to be used in
+% formatting your work, there are a number of {\itshape template parameters}
+% which modify some part of the applied template style. A complete list
+% of these parameters can be found in the {\itshape \LaTeX\ User's Guide.}
+
+% Frequently-used parameters, or combinations of parameters, include:
+% \begin{itemize}
+% \item {\texttt{anonymous,review}}: Suitable for a ``double-anonymous''
+%   conference submission. Anonymizes the work and includes line
+%   numbers. Use with the \texttt{\string\acmSubmissionID} command to print the
+%   submission's unique ID on each page of the work.
+% \item{\texttt{authorversion}}: Produces a version of the work suitable
+%   for posting by the author.
+% \item{\texttt{screen}}: Produces colored hyperlinks.
+% \end{itemize}
+
+% This document uses the following string as the first command in the
+% source file:
+% \begin{verbatim}
+% \documentclass[sigconf]{acmart}
+% \end{verbatim}
+
+% \section{Modifications}
+
+% Modifying the template --- including but not limited to: adjusting
+% margins, typeface sizes, line spacing, paragraph and list definitions,
+% and the use of the \verb|\vspace| command to manually adjust the
+% vertical spacing between elements of your work --- is not allowed.
+
+% {\bfseries Your document will be returned to you for revision if
+%   modifications are discovered.}
+
+% \section{Typefaces}
+
+% The ``\verb|acmart|'' document class requires the use of the
+% ``Libertine'' typeface family. Your \TeX\ installation should include
+% this set of packages. Please do not substitute other typefaces. The
+% ``\verb|lmodern|'' and ``\verb|ltimes|'' packages should not be used,
+% as they will override the built-in typeface families.
+
+% \section{Title Information}
+
+% The title of your work should use capital letters appropriately -
+% \url{https://capitalizemytitle.com/} has useful rules for
+% capitalization. Use the {\verb|title|} command to define the title of
+% your work. If your work has a subtitle, define it with the
+% {\verb|subtitle|} command.  Do not insert line breaks in your title.
+
+% If your title is lengthy, you must define a short version to be used
+% in the page headers, to prevent overlapping text. The \verb|title|
+% command has a ``short title'' parameter:
+% \begin{verbatim}
+%   \title[short title]{full title}
+% \end{verbatim}
+
+% \section{Authors and Affiliations}
+
+% Each author must be defined separately for accurate metadata
+% identification.  As an exception, multiple authors may share one
+% affiliation. Authors' names should not be abbreviated; use full first
+% names wherever possible. Include authors' e-mail addresses whenever
+% possible.
+
+% Grouping authors' names or e-mail addresses, or providing an ``e-mail
+% alias,'' as shown below, is not acceptable:
+% \begin{verbatim}
+%   \author{Brooke Aster, David Mehldau}
+%   \email{dave,judy,steve@university.edu}
+%   \email{firstname.lastname@phillips.org}
+% \end{verbatim}
+
+% The \verb|authornote| and \verb|authornotemark| commands allow a note
+% to apply to multiple authors --- for example, if the first two authors
+% of an article contributed equally to the work.
+
+% If your author list is lengthy, you must define a shortened version of
+% the list of authors to be used in the page headers, to prevent
+% overlapping text. The following command should be placed just after
+% the last \verb|\author{}| definition:
+% \begin{verbatim}
+%   \renewcommand{\shortauthors}{McCartney, et al.}
+% \end{verbatim}
+% Omitting this command will force the use of a concatenated list of all
+% of the authors' names, which may result in overlapping text in the
+% page headers.
+
+% The article template's documentation, available at
+% \url{https://www.acm.org/publications/proceedings-template}, has a
+% complete explanation of these commands and tips for their effective
+% use.
+
+% Note that authors' addresses are mandatory for journal articles.
+
+% \section{Rights Information}
+
+% Authors of any work published by ACM will need to complete a rights
+% form. Depending on the kind of work, and the rights management choice
+% made by the author, this may be copyright transfer, permission,
+% license, or an OA (open access) agreement.
+
+% Regardless of the rights management choice, the author will receive a
+% copy of the completed rights form once it has been submitted. This
+% form contains \LaTeX\ commands that must be copied into the source
+% document. When the document source is compiled, these commands and
+% their parameters add formatted text to several areas of the final
+% document:
+% \begin{itemize}
+% \item the ``ACM Reference Format'' text on the first page.
+% \item the ``rights management'' text on the first page.
+% \item the conference information in the page header(s).
+% \end{itemize}
+
+% Rights information is unique to the work; if you are preparing several
+% works for an event, make sure to use the correct set of commands with
+% each of the works.
+
+% The ACM Reference Format text is required for all articles over one
+% page in length, and is optional for one-page articles (abstracts).
+
+% \section{CCS Concepts and User-Defined Keywords}
+
+% Two elements of the ``acmart'' document class provide powerful
+% taxonomic tools for you to help readers find your work in an online
+% search.
+
+% The ACM Computing Classification System ---
+% \url{https://www.acm.org/publications/class-2012} --- is a set of
+% classifiers and concepts that describe the computing
+% discipline. Authors can select entries from this classification
+% system, via \url{https://dl.acm.org/ccs/ccs.cfm}, and generate the
+% commands to be included in the \LaTeX\ source.
+
+% User-defined keywords are a comma-separated list of words and phrases
+% of the authors' choosing, providing a more flexible way of describing
+% the research being presented.
+
+% CCS concepts and user-defined keywords are required for for all
+% articles over two pages in length, and are optional for one- and
+% two-page articles (or abstracts).
+
+% \section{Sectioning Commands}
+
+% Your work should use standard \LaTeX\ sectioning commands:
+% \verb|\section|, \verb|\subsection|, \verb|\subsubsection|,
+% \verb|\paragraph|, and \verb|\subparagraph|. The sectioning levels up to
+% \verb|\subsusection| should be numbered; do not remove the numbering
+% from the commands.
+
+% Simulating a sectioning command by setting the first word or words of
+% a paragraph in boldface or italicized text is {\bfseries not allowed.}
+
+% Below are examples of sectioning commands.
+
+% \subsection{Subsection}
+% \label{sec:subsection}
+
+% This is a subsection.
+
+% \subsubsection{Subsubsection}
+% \label{sec:subsubsection}
+
+% This is a subsubsection.
+
+% \paragraph{Paragraph}
+
+% This is a paragraph.
+
+% \subparagraph{Subparagraph}
+
+% This is a subparagraph.
+
+% \section{Tables}
+
+% The ``\verb|acmart|'' document class includes the ``\verb|booktabs|''
+% package --- \url{https://ctan.org/pkg/booktabs} --- for preparing
+% high-quality tables.
+
+% Table captions are placed {\itshape above} the table.
+
+% Because tables cannot be split across pages, the best placement for
+% them is typically the top of the page nearest their initial cite.  To
+% ensure this proper ``floating'' placement of tables, use the
+% environment \textbf{table} to enclose the table's contents and the
+% table caption.  The contents of the table itself must go in the
+% \textbf{tabular} environment, to be aligned properly in rows and
+% columns, with the desired horizontal and vertical rules.  Again,
+% detailed instructions on \textbf{tabular} material are found in the
+% \textit{\LaTeX\ User's Guide}.
+
+% Immediately following this sentence is the point at which
+% Table~\ref{tab:freq} is included in the input file; compare the
+% placement of the table here with the table in the printed output of
+% this document.
+
+% \begin{table}
+%   \caption{Frequency of Special Characters}
+%   \label{tab:freq}
+%   \begin{tabular}{ccl}
+%     \toprule
+%     Non-English or Math&Frequency&Comments\\
+%     \midrule
+%     \O & 1 in 1,000& For Swedish names\\
+%     $\pi$ & 1 in 5& Common in math\\
+%     \$ & 4 in 5 & Used in business\\
+%     $\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
+%   \bottomrule
+% \end{tabular}
+% \end{table}
+
+% To set a wider table, which takes up the whole width of the page's
+% live area, use the environment \textbf{table*} to enclose the table's
+% contents and the table caption.  As with a single-column table, this
+% wide table will ``float'' to a location deemed more
+% desirable. Immediately following this sentence is the point at which
+% Table~\ref{tab:commands} is included in the input file; again, it is
+% instructive to compare the placement of the table here with the table
+% in the printed output of this document.
+
+% \begin{table*}
+%   \caption{Some Typical Commands}
+%   \label{tab:commands}
+%   \begin{tabular}{ccl}
+%     \toprule
+%     Command &A Number & Comments\\
+%     \midrule
+%     \texttt{{\char'134}author} & 100& Author \\
+%     \texttt{{\char'134}table}& 300 & For tables\\
+%     \texttt{{\char'134}table*}& 400& For wider tables\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table*}
+
+% Always use midrule to separate table header rows from data rows, and
+% use it only for this purpose. This enables assistive technologies to
+% recognise table headers and support their users in navigating tables
+% more easily.
+
+% \section{Math Equations}
+% You may want to display math equations in three distinct styles:
+% inline, numbered or non-numbered display.  Each of the three are
+% discussed in the next sections.
+
+% \subsection{Inline (In-text) Equations}
+% A formula that appears in the running text is called an inline or
+% in-text formula.  It is produced by the \textbf{math} environment,
+% which can be invoked with the usual
+% \texttt{{\char'134}begin\,\ldots{\char'134}end} construction or with
+% the short form \texttt{\$\,\ldots\$}. You can use any of the symbols
+% and structures, from $\alpha$ to $\omega$, available in
+% \LaTeX~\cite{Lamport:LaTeX}; this section will simply show a few
+% examples of in-text equations in context. Notice how this equation:
+% \begin{math}
+%   \lim_{n\rightarrow \infty}x=0
+% \end{math},
+% set here in in-line math style, looks slightly different when
+% set in display style.  (See next section).
+
+% \subsection{Display Equations}
+% A numbered display equation---one set off by vertical space from the
+% text and centered horizontally---is produced by the \textbf{equation}
+% environment. An unnumbered display equation is produced by the
+% \textbf{displaymath} environment.
+
+% Again, in either environment, you can use any of the symbols and
+% structures available in \LaTeX\@; this section will just give a couple
+% of examples of display equations in context.  First, consider the
+% equation, shown as an inline equation above:
+% \begin{equation}
+%   \lim_{n\rightarrow \infty}x=0
+% \end{equation}
+% Notice how it is formatted somewhat differently in
+% the \textbf{displaymath}
+% environment.  Now, we'll enter an unnumbered equation:
+% \begin{displaymath}
+%   \sum_{i=0}^{\infty} x + 1
+% \end{displaymath}
+% and follow it with another numbered equation:
+% \begin{equation}
+%   \sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f
+% \end{equation}
+% just to demonstrate \LaTeX's able handling of numbering.
+
+% \section{Figures}
+
+% The ``\verb|figure|'' environment should be used for figures. One or
+% more images can be placed within a figure. If your figure contains
+% third-party material, you must clearly identify it as such, as shown
+% in the example below.
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=\linewidth]{sample-franklin}
+%   \caption{1907 Franklin Model D roadster. Photograph by Harris \&
+%     Ewing, Inc. [Public domain], via Wikimedia
+%     Commons. (\url{https://goo.gl/VLCRBB}).}
+%   \Description{A woman and a girl in white dresses sit in an open car.}
+% \end{figure}
+
+% Your figures should contain a caption which describes the figure to
+% the reader.
+
+% Figure captions are placed {\itshape below} the figure.
+
+% Every figure should also have a figure description unless it is purely
+% decorative. These descriptions convey what’s in the image to someone
+% who cannot see it. They are also used by search engine crawlers for
+% indexing images, and when images cannot be loaded.
+
+% A figure description must be unformatted plain text less than 2000
+% characters long (including spaces).  {\bfseries Figure descriptions
+%   should not repeat the figure caption – their purpose is to capture
+%   important information that is not already provided in the caption or
+%   the main text of the paper.} For figures that convey important and
+% complex new information, a short text description may not be
+% adequate. More complex alternative descriptions can be placed in an
+% appendix and referenced in a short figure description. For example,
+% provide a data table capturing the information in a bar chart, or a
+% structured list representing a graph.  For additional information
+% regarding how best to write figure descriptions and why doing this is
+% so important, please see
+% \url{https://www.acm.org/publications/taps/describing-figures/}.
+
+% \subsection{The ``Teaser Figure''}
+
+% A ``teaser figure'' is an image, or set of images in one figure, that
+% are placed after all author and affiliation information, and before
+% the body of the article, spanning the page. If you wish to have such a
+% figure in your article, place the command immediately before the
+% \verb|\maketitle| command:
+% \begin{verbatim}
+%   \begin{teaserfigure}
+%     \includegraphics[width=\textwidth]{sampleteaser}
+%     \caption{figure caption}
+%     \Description{figure description}
+%   \end{teaserfigure}
+% \end{verbatim}
+
+% \section{Citations and Bibliographies}
+
+% The use of \BibTeX\ for the preparation and formatting of one's
+% references is strongly recommended. Authors' names should be complete
+% --- use full first names (``Donald E. Knuth'') not initials
+% (``D. E. Knuth'') --- and the salient identifying features of a
+% reference should be included: title, year, volume, number, pages,
+% article DOI, etc.
+
+% The bibliography is included in your source document with these two
+% commands, placed just before the \verb|\end{document}| command:
+% \begin{verbatim}
+%   \bibliographystyle{ACM-Reference-Format}
+%   \bibliography{bibfile}
+% \end{verbatim}
+% where ``\verb|bibfile|'' is the name, without the ``\verb|.bib|''
+% suffix, of the \BibTeX\ file.
+
+% Citations and references are numbered by default. A small number of
+% ACM publications have citations and references formatted in the
+% ``author year'' style; for these exceptions, please include this
+% command in the {\bfseries preamble} (before the command
+% ``\verb|\begin{document}|'') of your \LaTeX\ source:
+% \begin{verbatim}
+%   \citestyle{acmauthoryear}
+% \end{verbatim}
+
+
+%   Some examples.  A paginated journal article \cite{Abril07}, an
+%   enumerated journal article \cite{Cohen07}, a reference to an entire
+%   issue \cite{JCohen96}, a monograph (whole book) \cite{Kosiur01}, a
+%   monograph/whole book in a series (see 2a in spec. document)
+%   \cite{Harel79}, a divisible-book such as an anthology or compilation
+%   \cite{Editor00} followed by the same example, however we only output
+%   the series if the volume number is given \cite{Editor00a} (so
+%   Editor00a's series should NOT be present since it has no vol. no.),
+%   a chapter in a divisible book \cite{Spector90}, a chapter in a
+%   divisible book in a series \cite{Douglass98}, a multi-volume work as
+%   book \cite{Knuth97}, a couple of articles in a proceedings (of a
+%   conference, symposium, workshop for example) (paginated proceedings
+%   article) \cite{Andler79, Hagerup1993}, a proceedings article with
+%   all possible elements \cite{Smith10}, an example of an enumerated
+%   proceedings article \cite{VanGundy07}, an informally published work
+%   \cite{Harel78}, a couple of preprints \cite{Bornmann2019,
+%     AnzarootPBM14}, a doctoral dissertation \cite{Clarkson85}, a
+%   master's thesis: \cite{anisi03}, an online document / world wide web
+%   resource \cite{Thornburg01, Ablamowicz07, Poker06}, a video game
+%   (Case 1) \cite{Obama08} and (Case 2) \cite{Novak03} and \cite{Lee05}
+%   and (Case 3) a patent \cite{JoeScientist001}, work accepted for
+%   publication \cite{rous08}, 'YYYYb'-test for prolific author
+%   \cite{SaeediMEJ10} and \cite{SaeediJETC10}. Other cites might
+%   contain 'duplicate' DOI and URLs (some SIAM articles)
+%   \cite{Kirschmer:2010:AEI:1958016.1958018}. Boris / Barbara Beeton:
+%   multi-volume works as books \cite{MR781536} and \cite{MR781537}. A
+%   presentation~\cite{Reiser2014}. An article under
+%   review~\cite{Baggett2025}. A
+%   couple of citations with DOIs:
+%   \cite{2004:ITE:1009386.1010128,Kirschmer:2010:AEI:1958016.1958018}. Online
+%   citations: \cite{TUGInstmem, Thornburg01, CTANacmart}.
+%   Artifacts: \cite{R} and \cite{UMassCitations}.
+
+% \section{Acknowledgments}
+
+% Identification of funding sources and other support, and thanks to
+% individuals and groups that assisted in the research and the
+% preparation of the work should be included in an acknowledgment
+% section, which is placed just before the reference section in your
+% document.
+
+% This section has a special environment:
+% \begin{verbatim}
+%   \begin{acks}
+%   ...
+%   \end{acks}
+% \end{verbatim}
+% so that the information contained therein can be more easily collected
+% during the article metadata extraction phase, and to ensure
+% consistency in the spelling of the section heading.
+
+% Authors should not prepare this section as a numbered or unnumbered {\verb|\section|}; please use the ``{\verb|acks|}'' environment.
+
+% \section{Appendices}
+
+% If your work needs an appendix, add it before the
+% ``\verb|\end{document}|'' command at the conclusion of your source
+% document.
+
+% Start the appendix with the ``\verb|appendix|'' command:
+% \begin{verbatim}
+%   \appendix
+% \end{verbatim}
+% and note that in the appendix, sections are lettered, not
+% numbered. This document has two appendices, demonstrating the section
+% and subsection identification method.
+
+% \section{Multi-language papers}
+
+% Papers may be written in languages other than English or include
+% titles, subtitles, keywords and abstracts in different languages (as a
+% rule, a paper in a language other than English should include an
+% English title and an English abstract).  Use \verb|language=...| for
+% every language used in the paper.  The last language indicated is the
+% main language of the paper.  For example, a French paper with
+% additional titles and abstracts in English and German may start with
+% the following command
+% \begin{verbatim}
+% \documentclass[sigconf, language=english, language=german,
+%                language=french]{acmart}
+% \end{verbatim}
+
+% The title, subtitle, keywords and abstract will be typeset in the main
+% language of the paper.  The commands \verb|\translatedXXX|, \verb|XXX|
+% begin title, subtitle and keywords, can be used to set these elements
+% in the other languages.  The environment \verb|translatedabstract| is
+% used to set the translation of the abstract.  These commands and
+% environment have a mandatory first argument: the language of the
+% second argument.  See \verb|sample-sigconf-i13n.tex| file for examples
+% of their usage.
+
+% \section{SIGCHI Extended Abstracts}
+
+% The ``\verb|sigchi-a|'' template style (available only in \LaTeX\ and
+% not in Word) produces a landscape-orientation formatted article, with
+% a wide left margin. Three environments are available for use with the
+% ``\verb|sigchi-a|'' template style, and produce formatted output in
+% the margin:
+% \begin{description}
+% \item[\texttt{sidebar}:]  Place formatted text in the margin.
+% \item[\texttt{marginfigure}:] Place a figure in the margin.
+% \item[\texttt{margintable}:] Place a table in the margin.
+% \end{description}
+
+%%
+%% The acknowledgments section is defined using the "acks" environment
+%% (and NOT an unnumbered section). This ensures the proper
+%% identification of the section in the article metadata, and the
+%% consistent spelling of the heading.
+\begin{acks}
+To Robert, for the bagels and explaining CMYK and color spaces.
+\end{acks}
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{custom_agri_R1,sample-base}
+
+
+% %%
+% %% If your work has an appendix, this is the place to put it.
+% \appendix
+
+% \section{Research Methods}
+
+% \subsection{Part One}
+
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+% malesuada, quam in pulvinar varius, metus nunc fermentum urna, id
+% sollicitudin purus odio sit amet enim. Aliquam ullamcorper eu ipsum
+% vel mollis. Curabitur quis dictum nisl. Phasellus vel semper risus, et
+% lacinia dolor. Integer ultricies commodo sem nec semper.
+
+% \subsection{Part Two}
+
+% Etiam commodo feugiat nisl pulvinar pellentesque. Etiam auctor sodales
+% ligula, non varius nibh pulvinar semper. Suspendisse nec lectus non
+% ipsum convallis congue hendrerit vitae sapien. Donec at laoreet
+% eros. Vivamus non purus placerat, scelerisque diam eu, cursus
+% ante. Etiam aliquam tortor auctor efficitur mattis.
+
+% \section{Online Resources}
+
+% Nam id fermentum dui. Suspendisse sagittis tortor a nulla mollis, in
+% pulvinar ex pretium. Sed interdum orci quis metus euismod, et sagittis
+% enim maximus. Vestibulum gravida massa ut felis suscipit
+% congue. Quisque mattis elit a risus ultrices commodo venenatis eget
+% dui. Etiam sagittis eleifend elementum.
+
+% Nam interdum magna at lectus dignissim, ac dignissim lorem
+% rhoncus. Maecenas eu arcu ac neque placerat aliquam. Nunc pulvinar
+% massa et mattis lacinia.
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.
