@@ -61,6 +61,35 @@ We introduce **Agri-R1**, to our knowledge the first GRPO-based framework specif
 
 ---
 
+## Analysis Results
+
+### Table 3: Generator–Judge Ablation
+
+| Generator | Judge | Crop Acc. (%) | Disease Acc. (%) | KQA (/100) |
+|-----------|-------|--------------|-----------------|------------|
+| DeepSeek-VL2 | No Judge | 92.4 | 70.54 | 75.5 |
+| DeepSeek-VL2 | DeepSeek Judge | 92.45 | 72.5 | 77.0 |
+| DeepSeek-VL2 | Qwen72B Judge | 92.5 | 73.0 | 81.0 |
+| **DeepSeek-VL2** | **GPT-4 Judge** | **92.58** | **75.3** | **84.0** |
+| Qwen2.5-VL-72B | No Judge | 92.6 | 71.45 | 73.2 |
+| Qwen2.5-VL-72B | DeepSeek Judge | 92.9 | 72.6 | 75.0 |
+| Qwen2.5-VL-72B | Qwen72B Judge | 93.1 | 72.5 | 74.5 |
+| Qwen2.5-VL-72B | GPT-4 Judge | **94.2** | 74.2 | 81.0 |
+
+**Key finding**: External judge quality is paramount — GPT-4 judging consistently outperforms self-judging. DeepSeek-VL2 + GPT-4 gives the best overall balance and is used in main experiments.
+
+### Table 4: Expert Evaluation of Reasoning Quality (N=200, scores 0–10)
+
+| Method | Diag. Acc. | Reasoning Validity | Utility | Human–GPT-4 r |
+|--------|-----------|-------------------|---------|---------------|
+| SFT | 6.5 | 3.2 | 6.1 | 0.82 |
+| GRPO | 7.6 | 5.6 | 7.3 | 0.86 |
+| **Agri-R1 (Reasoning-Enhanced)** | **8.1** | **7.8** | **8.0** | **0.89** |
+
+**Key finding**: The largest gain is in Reasoning Validity (+4.6 over SFT), confirming that explicit `<think>` supervision fundamentally improves diagnostic reasoning structure. Human–GPT-4 correlation ≥0.82 validates LLM-based scoring for both data filtering and reward design.
+
+---
+
 ## Why Reasoning Matters
 
 Explicit reasoning scales with task complexity:
@@ -241,7 +270,8 @@ Agri-R1/
 │   │
 │   ├── r1-v/                        # GRPO training framework
 │   │   ├── src/open_r1/
-│   │   │   ├── grpo_vqa.py          # Reward function
+│   │   │   ├── grpo_vqa.py          # Standard reward function
+│   │   │   ├── grpo_vqa -FA weighting.py  # Frequency-aware reward variant
 │   │   │   └── trainer/grpo_trainer.py
 │   │   └── configs/                 # DeepSpeed configs
 │   │
