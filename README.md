@@ -309,11 +309,14 @@ Agri-R1/
 ## Citation
 
 ```bibtex
-@inproceedings{agri-r1-2026,
-  title={Agri-R1: Agricultural Reasoning for Disease Diagnosis via Automated-Synthesis and Reinforcement Learning},
-  author={[Authors]},
-  booktitle={Proceedings of the 34th ACM International Conference on Multimedia (ACM MM '26)},
-  year={2026}
+@misc{zhang2026agrir1agriculturalreasoningdisease,
+      title={Agri-R1: Agricultural Reasoning for Disease Diagnosis via Automated-Synthesis and Reinforcement Learning}, 
+      author={Wentao Zhang and Mingkun Xu and Qi Zhang and Shangyang Li and Derek F. Wong and Lifei Wang and Yanchao Yang and Lina Lu and Tao Fang},
+      year={2026},
+      eprint={2601.04672},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2601.04672}, 
 }
 ```
 
